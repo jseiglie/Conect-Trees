@@ -1,0 +1,33 @@
+.externalLink {
+  text-decoration: none;
+  font-weight: bold;
+  color: whitesmoke;
+}
+
+.imgFooter {
+  width: 25rem;
+}
+
+.externalLink:hover {
+  color: #388f88;
+}
+
+.footerWrap {
+  justify-content: center;
+  text-align: center;
+}
+
+.footer {
+  background: rgb(56, 143, 136);
+  background: linear-gradient(
+    0deg,
+    rgba(56, 143, 136, 1) 0%,
+    rgba(252, 255, 254, 1) 77%
+  );
+  bottom: 0;
+  width: 100%;
+  padding: 1.5rem 0 3rem 0;
+  border-top: 1px solid #388f88;
+  box-shadow: 0px -1px 30px 5px;
+  padding-top: 5rem;
+}

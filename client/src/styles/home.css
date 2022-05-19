@@ -1,0 +1,309 @@
+html {
+  font-family: 'Josefin Sans', sans-serif;
+  overflow-x: hidden;
+}
+p{
+  font-family: 'Josefin Sans', sans-serif;
+}
+h1, h2, h3, h4, h5 {
+  font-family: 'Josefin Sans', sans-serif;
+}
+body {
+  color: #388f88;
+  position: absolute;
+  width: 100%;
+  padding: 0;
+  scrollbar-gutter: 0 !important;
+}
+main {
+  background: white;
+  width: 100%;
+  position: absolute;
+}
+.centered {
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+}
+.section_name {
+  text-align: center;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  font-size: 2.2rem;
+  display: flex;
+  display: -ms-flexbox;
+  align-items: center;
+  justify-content: center;
+}
+.color-white {
+  color: #f2f2f2;
+}
+.color-theme {
+  color: #388f88;
+}
+/* background*/
+#background-video {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 20%;
+  background-size: 100% 100%;
+  background-color: white;
+  background-position: center center;
+  background-size: contain;
+  object-fit: cover;
+  z-index: 1;
+  box-shadow: 0px 5px 30px 2px;
+}
+/**********************TOP*******************************************************/
+.background-video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+}
+video {
+  object-fit: contain;
+  z-index: 1;
+}
+.text__video,
+.tw__text {
+  color: #388f88;
+  font-weight: bold;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  margin-top: -35rem;
+}
+.text__video {
+  margin-top: -40rem;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  margin-left: 2rem;
+  width: 80%;
+}
+.tw__text {
+  width: 80%;
+  margin-left: 2rem;
+}
+/********** Nosotros***********/
+.textStrong {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+.colab__text {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  font-size: 3rem;
+}
+.nosText {
+  font-size: 1.5rem;
+  font-weight: 400;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.nosText2 {
+  font-size: 1.7rem;
+  font-weight: 500;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.testest {
+  border: 3px solid red;
+}
+.img__holder {
+  max-width: 25rem;
+}
+.colab__wrap {
+  width: 90%;  
+}
+.img__wrap{
+  align-self: center;
+}
+.colab__{
+  text-align: -webkit-center;
+  text-align: -moz-center;
+  justify-content: center;
+}
+.colaboradoresImg {
+  width: 100%;
+  max-height: 25rem;
+  margin-bottom: 2rem;
+  padding: 1rem;
+}
+.colaboradoresShow__holder {
+  width: 100%;
+}
+/***********ConnectLovers*******************/
+.cl-title {
+  padding: 6rem;
+}
+#connectLovers {
+  background-image: url("../../public/img/2.jpg");
+  box-shadow: 0px 5px 30px 2px;
+}
+.cl-card {
+  border: 0;
+  padding: 1rem 0rem;
+}
+.cl-card-body {
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 23rem;
+  border-radius: 1rem;
+}
+.card-wrap {
+  width: 25rem;
+  height: 32rem;
+  border-radius: 1rem;
+  background: #32827b;
+  /* 32827b   40a89f  84a638 */
+}
+.cl-frost {
+  background: transparent;
+  box-shadow: 0 8px 15px 0 rgba(135, 128, 31, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+  padding: 1rem;
+  padding: 1rem 0rem;
+  height: 29rem;
+}
+
+.colab__a{
+  text-decoration: none;
+  
+}
+.colab__a:hover{
+  cursor: pointer;
+}
+
+/********************DIGITALIZATE**********************************/
+.digitalizate__wrapper {
+  width: 70%;
+  justify-content: space-between;
+}
+.digitalizate_card {
+  border: 0;
+  padding: 1.5rem 1.4rem;
+  
+}
+.digitalizate-card-body {
+  
+  justify-content: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100%;
+  height: 100%;
+  min-width: 20rem;
+  min-height: 20rem;
+  border-radius: 1rem;
+  box-shadow: 2px 2px 8px 2px #32827b;
+}
+.shadow {
+  box-shadow: 0.5px 1px 3px 2px;
+}
+/**********************CONTACTO**************************************************/
+.contacto {
+  box-shadow: 0px 5px 30px 2px;
+  background: rgb(56, 143, 136);
+  background: linear-gradient(
+    0deg,
+    rgba(56, 143, 136, 1) 0%,
+    rgba(223, 236, 221, 1) 40%,
+    rgba(223, 236, 221, 1) 60%,
+    rgba(56, 143, 136, 1) 100%
+  );
+  padding-bottom: 5rem;
+  border-radius: 1rem;
+  margin-top: 6rem;
+  padding-top: 0.5rem;
+}
+/**********************CONNECTNEWS**************************************************/
+.cn-card {
+  border: 0;
+  padding: 1rem 0rem;
+}
+.cn-img-wrapper {
+  border: 0;
+}
+.cn-card-body {
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 600px;
+  border-radius: 1rem;
+}
+.frost {
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+  padding: 3.5rem;
+}
+.cn-text-masInfo {
+  text-align: right;
+}
+span.cn-noticia__tittle {
+  vertical-align: middle;
+}
+a {
+  text-decoration: none;
+}
+.cn-card__link:hover {
+  box-shadow: 0px 2px 10px 2px wheat;
+  border-radius: 1rem;
+}
+/*************DigiTraining**************************************/
+#dt {
+  background-image: url("../../public/img/drone.jpg");
+  box-shadow: 0px 5px 30px 2px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.dt-card__wrap {
+  padding: 1rem;
+}
+.dt-card {
+  border: 0;
+  padding: 1rem 0rem;
+}
+.dt-card-body {
+  justify-content: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: 1rem;
+}
+.dt-noticia__tittle {
+  width: 100%;
+}
+.dt-card__footer {
+  border: 1px solid;
+  border-top: none;
+  border-radius: 0.5rem;
+}
+.dt-frost {
+  background: rgba(113, 206, 198, 0.3);
+  box-shadow: 0 8px 15px 0 rgba(135, 128, 31, 0.37);
+  backdrop-filter: blur(3.5px);
+  -webkit-backdrop-filter: blur(3.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: white;
+  padding: 1rem;
+  padding: 1rem 0rem;
+}

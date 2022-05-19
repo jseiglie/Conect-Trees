@@ -1,0 +1,38 @@
+.background-video {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  
+}
+
+video {
+  object-fit: contain;
+  z-index: 1;
+}
+
+
+
+.text__video,
+.tw__text {
+  color: #388f88;
+  font-weight: bold;
+  position: absolute;
+  z-index: 3;
+  width: 100%;
+  margin-top: -35rem;
+}
+
+.text__video {
+  margin-top: -40rem;
+  margin-bottom: 2rem;
+  font-size: 2.5rem;
+  margin-left: 2rem;
+  width: 80%;
+}
+.tw__text {
+  width: 80%;
+  margin-left: 2rem;
+}

@@ -1,0 +1,54 @@
+.contact__form{
+    border: 0;
+    
+}
+
+.contact__card{
+    border: 0; 
+}
+
+.fontAwesome__Position{
+    vertical-align: middle;
+    padding: 0.3rem;
+}
+
+.from__input__wrapper{
+    border: solid 1px #32827b ;
+    border-radius: 0.4rem;
+    margin-top: 2rem;
+    background-color: #32827b;
+    color: whitesmoke;
+    place-items: baseline;
+    padding-bottom: 0.5rem;
+    
+}
+
+.form__input {
+    border: 0;
+    color: black;
+    box-shadow: 0.5px 1px 1px 2px;
+}
+
+.contact_form__submit__btn{
+    color: whitesmoke;
+    text-align: center;
+    margin-top: 2rem;
+    border: 2px solid #32827b;
+    background-color: #32827b ;
+}
+
+.contact_form__submit__ico{
+    margin-left: 1rem;
+    color: whitesmoke;
+}
+
+.contact_form__submit__btn:hover {
+    border: whitesmoke 2px solid ;
+    scale: 1,3;
+    color: whitesmoke;
+    
+}
+.contact_form__wrapper{
+    justify-content: center;
+    
+}
