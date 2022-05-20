@@ -17,7 +17,7 @@ const AddVideo = () => {
   // const hora = new Date(timestamp).toLocaleTimeString("es-ES") //17:17:54
 
   useEffect(() => {
-    if (!authState) navigate("/admin");
+    if (!authState) navigate("/admin"); // eslint-disable-next-line
   }, []);
 
   // Messages

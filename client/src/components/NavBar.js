@@ -27,7 +27,7 @@ export const Navbar = () => {
           <Link to={"/digitalizate"}>DIGITALÍZATE</Link>
         </li>
         <li className="navItem navbarLink">
-          <Link to={"/videoblog"}>VIDEOBLOG</Link>
+          <Link to={"/videoblog/home"}>VIDEOBLOG</Link>
         </li>
 
         <li className="navItem">

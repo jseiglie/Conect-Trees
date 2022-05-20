@@ -14,6 +14,7 @@ const LoginForm = () => {
 navigate= useNavigate();
   useEffect(()=>{
     if (authState) navigate("/admin/dashboard");
+     // eslint-disable-next-line
   },[])
 
   const login = (e) => {

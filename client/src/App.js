@@ -1,6 +1,6 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./views/Home";
-import Register from "./views/Register";
+
 import NotFound from "./views/notfound";
 import Login from "./views/Login";
 import { AuthContext } from "./helpers/AuthContext";
@@ -12,7 +12,7 @@ import EditNews from "./components/EditNews";
 import EditColab from "./components/EditColab";
 import EditVideo from "./components/EditVideo";
 import axios from "axios";
-
+import Main from "./views/videoblog/Main";
 function App() {
   
   const [authState, setAuthState] = useState(false);
@@ -21,7 +21,7 @@ function App() {
     if (localStorage.getItem("accessToken")) {
       setAuthState(true);
     }
-  });
+  },[]);
   // checks for valid token
   useEffect(() => {
     axios
@@ -53,6 +53,7 @@ function App() {
             />
             <Route path="/admin/editvideo/:id" element={<EditVideo />} />
             <Route path="/colaboradores/edit/:id" element={<EditColab />} />
+            <Route path="/videoblog/home" element={<Main/>}/>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

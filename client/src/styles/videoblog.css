@@ -1,0 +1,79 @@
+/*Navbar*/
+.VbTitleMainHolder {
+  align-self: center;
+}
+
+.VbInputSearch {
+  border-color: #388f88;
+  width: 18rem;
+}
+li > a {
+  color: #388f88;
+  text-decoration: none;
+  font-weight: bold;
+}
+.VbDestacadaTop {
+  background-image: url("../../public/img_blog/noticias/ConnecTrees_FIMA_2022.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 40rem;
+  background-position: center;
+  border-radius: 1rem;
+  width: auto;
+  /* box-shadow: 0px 20px 10px 2px; */
+}
+
+
+
+/*NAVIGATION*/
+
+.VbNavigationUl{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    padding: 1rem;
+    font-size: 1.3rem;
+    display: inline-flex;
+    justify-content: space-evenly;
+    
+}
+
+.VbNavigationLi{
+    list-style-type: none;
+}
+
+/* VbFOOTER */
+
+.externalLink {
+  text-decoration: none;
+  font-weight: bold;
+  color: whitesmoke;
+}
+
+.VbimgFooter {
+  width: 25rem;
+}
+
+.externalLink:hover {
+  color: #388f88;
+}
+
+.VbfooterWrap {
+  justify-content: center;
+  text-align: center;
+}
+
+.Vbfooter {
+  background: rgb(56, 143, 136);
+  background: linear-gradient(
+    0deg,
+    rgba(56, 143, 136, 1) 0%,
+    rgba(252, 255, 254, 1) 77%
+  );
+  bottom: 0;
+  width: 100%;
+  padding: 1.5rem 0 3rem 0;
+  border-top: 1px solid #388f88;
+  box-shadow: 0px -1px 30px 5px;
+  padding-top: 5rem;
+}

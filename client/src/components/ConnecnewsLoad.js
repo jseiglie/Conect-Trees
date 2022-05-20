@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const ConnecnewsLoad = () => {
   const navigate = useNavigate();
+   // eslint-disable-next-line
   const { id } = useParams();
   const [connecnews, setConnecnews] = useState([]);
   const [modified, setModified] = useState(false);

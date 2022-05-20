@@ -14,7 +14,7 @@ const EditNews = () => {
   const { authState } = useContext(AuthContext);
 
   useEffect(() => {
-    if (!authState) navigate("/admin");
+    if (!authState) navigate("/admin"); // eslint-disable-next-line
   }, []);
 
   const guide = () => {
@@ -54,7 +54,7 @@ const EditNews = () => {
   };
 
   useEffect(() => {
-    dataLoad();
+    dataLoad(); // eslint-disable-next-line
   }, []);
 
   // Messages
@@ -555,24 +555,24 @@ const EditNews = () => {
                   <div className="Card-body">
                     <div className="addnews_img_preview">
                       <p>Imagen 1</p>
-                      {news.ruta_img1 != undefined ? (
-                        <img src={news.ruta_img1} />
+                      {news.ruta_img1 !== undefined ? (
+                        <img src={news.ruta_img1} alt=""/>
                       ) : (
                         <p>No se cargo una imagen</p>
                       )}
                     </div>
                     <div className="addnews_img_preview">
                       <p>Imagen 2</p>
-                      {news.ruta_img2 != undefined ? (
-                        <img src={news.ruta_img2} />
+                      {news.ruta_img2 !== undefined ? (
+                        <img src={news.ruta_img2} alt=""/>
                       ) : (
                         <p>No se cargo una imagen</p>
                       )}
                     </div>
                     <div className="addnews_img_preview">
                       <p>Imagen 3</p>
-                      {news.ruta_img3 != undefined ? (
-                        <img src={news.ruta_img3} />
+                      {news.ruta_img3 !== undefined ? (
+                        <img src={news.ruta_img3} alt=""/>
                       ) : (
                         <p>No se cargo una imagen</p>
                       )}

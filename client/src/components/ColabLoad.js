@@ -3,14 +3,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 const ColabLoad = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // eslint-disable-next-line
   const { id } = useParams();
   const [colaboradores, setColaboradores] = useState([]);
   const [modified, setModified] = useState(false);
 
-useEffect(()=>{
-  loadColab()
-},[modified])
+  useEffect(() => {
+    loadColab();
+  }, [modified]);
 
   const loadColab = async () => {
     try {
@@ -18,13 +18,12 @@ useEffect(()=>{
         "http://localhost:3001/digitalhub/colaboradores"
       );
       setColaboradores(resp.data);
-    
     } catch (error) {
       console.log(error);
     }
   };
   useEffect(() => {
-    loadColab();
+    loadColab(); // eslint-disable-next-line
   }, []);
 
   const handleTrashClick = (id) => {
@@ -36,8 +35,7 @@ useEffect(()=>{
             accessToken: localStorage.getItem("accessToken"),
           },
         }
-        )
-        (modified===true? setModified(false)  : setModified(true))
+      )(modified === true ? setModified(false) : setModified(true));
     } catch (error) {
       console.log(error);
     }
@@ -46,7 +44,6 @@ useEffect(()=>{
   return (
     <>
       {colaboradores.map((item, i) => (
-        
         <div className="row line" key={i}>
           <div className="col-8">
             <p className="table_items ">{item.nombre}</p>

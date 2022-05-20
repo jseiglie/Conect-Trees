@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const DigiTrainingLoad = () => {
   const navigate = useNavigate();
+   // eslint-disable-next-line
   const { id } = useParams();
   const [digitraining, setDigitraining] = useState([]);
   const [modified, setModified] = useState(false);

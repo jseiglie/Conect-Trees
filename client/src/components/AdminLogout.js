@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../helpers/AuthContext";
 const AdminLogout = () => {
   const navigate = useNavigate();
-  const { authState, setAuthState } = useContext(AuthContext);
+  const { setAuthState } = useContext(AuthContext);
   const handleLogOut = () => {
     localStorage.removeItem("accessToken");
     setAuthState(false);

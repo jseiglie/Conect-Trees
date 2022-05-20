@@ -32,6 +32,7 @@ const ConnecNews = () => {
         <div className="card cn-card">
           <div
             className="card-body cn-card-body d-flex align-items-center"
+             // eslint-disable-next-line
             style={{ backgroundImage: "" + `${item.img}` }}
           >
             <a className="cn-card__link" href={item.url}>

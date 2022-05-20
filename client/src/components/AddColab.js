@@ -78,7 +78,7 @@ useEffect(()=>{
 
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
-      const send = await axios.post(
+      await axios.post(
         "http://localhost:3001/digitalhub/colaboradores",
         values,
         {

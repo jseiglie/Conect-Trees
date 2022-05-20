@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import AdminFooter from "../../components/AdminFooter";
 import { AuthContext } from "../../helpers/AuthContext";
 import AdminHeader from "../../components/AdminHeader";
@@ -8,10 +8,11 @@ import AdminLogout from "../../components/AdminLogout";
 
 const AdminDashboard = () => {
   const navigate = useNavigate();
-  const { authState, setAuthState } = useContext(AuthContext);
+  const { authState } = useContext(AuthContext);
 
   useEffect(() => {
     if (!authState) navigate("/admin");
+     // eslint-disable-next-line
   }, []);
 
   return (

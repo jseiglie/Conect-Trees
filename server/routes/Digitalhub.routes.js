@@ -6,6 +6,11 @@ const multer = require("multer");
 const { sign } = require("jsonwebtoken");
 const { validateToken } = require("../middleware/authmiddleware");
 
+const formater = (str) =>{
+  const strformater = str.replaceAll(' ', '-');
+  return strformater
+}
+
 ///IMAGENES
 
 const imgUploadPath = "../client/public/img/noticias_img"; //CAMBIAR EN EL SERVIDOR
@@ -201,7 +206,7 @@ router.put("/editvideo/:id", validateToken, async (req, res) => {
   await videos.update(
     {
       titulo: titulo,
-      titulo_seo: titulo_seo,
+      titulo_seo: formater(titulo_seo),
       tipo: tipo,
       codigo: codigo,
       seccion: seccion,
@@ -265,7 +270,7 @@ router.put("/addtonews/:id", validateToken, async (req, res) => {
       ruta_img3: ruta_img3,
       tipo_video: tipo_video,
       titulo: titulo,
-      titulo_seo: titulo_seo,
+      titulo_seo: formater(titulo_seo),
       user_modificacion: user_modificacion,
       video: video,
     },

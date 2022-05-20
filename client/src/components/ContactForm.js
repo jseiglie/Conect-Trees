@@ -7,7 +7,7 @@ const ContactForm = () => {
   const [surname, setSurname] = useState("");
   const [emporg, setEmporg] = useState("");
   const [mail, setMail] = useState("");
-
+ // eslint-disable-next-line
   const regexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
 

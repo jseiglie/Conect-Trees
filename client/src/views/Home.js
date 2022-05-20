@@ -1,6 +1,4 @@
 import React from "react";
-import axios from "axios";
-import { useEffect } from "react";
 import { Nosotros } from "../components/nosotros";
 import { Navbar } from "../components/NavBar";
 import "../styles/home.css";

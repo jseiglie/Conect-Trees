@@ -15,6 +15,7 @@ export const Tab = () => {
 
   useEffect(() => {
     if (!authState) navigate("/admin");
+     // eslint-disable-next-line
   }, []);
 
   const toggleTab = (index) => {

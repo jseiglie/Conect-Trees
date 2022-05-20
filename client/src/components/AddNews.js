@@ -250,6 +250,8 @@ const AddNews = () => {
     );
   };
 
+
+
   return (
     <>
       <AdminHeader />
@@ -305,6 +307,7 @@ const AddNews = () => {
       >
         {({ errors, touched, isValidating }) => (
           <div className="container">
+            
             <div className="row iconXPos">
               <span onClick={handleClose} className="iconX">
                 <i class="fas fa-xmark"></i>

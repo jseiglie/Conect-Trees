@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 const ConnecloversLoad = () => {
-  const navigate = useNavigate();
+  const navigate = useNavigate(); // eslint-disable-next-line
   const { id } = useParams();
   const [conneclovers, setConnecLovers] = useState([]);
   const [modified, setModified] = useState(false);
@@ -20,7 +20,7 @@ const ConnecloversLoad = () => {
   };
 
   useEffect(() => {  
-    loadConnectlovers();
+    loadConnectlovers(); // eslint-disable-next-line
   }, []);
   
   useEffect(() => {

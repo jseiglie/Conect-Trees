@@ -58,9 +58,10 @@ const Digitalizate = () => {
         {survey.map((item, i) => (
           <div className="col-lg-6 " key={i}>
             <div className="card digitalizate_card">
-              <a className="cn-card__link" href={item.url} target="_blank">
+              <a className="cn-card__link" href={item.url} target="_blank" rel="noreferrer">
               <div
                 className="card-body digitalizate-card-body"
+                 // eslint-disable-next-line
                 style={{ backgroundImage: "" + `${item.img}` }}
               >
               <div className="digitalizate__wrapper">

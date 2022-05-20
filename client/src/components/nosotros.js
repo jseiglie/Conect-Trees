@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
 import ReactTooltip from "react-tooltip";
 import * as bootstrap from "bootstrap";
 
@@ -20,6 +19,7 @@ export const Nosotros = () => {
     const tooltipTriggerList = [].slice.call(
       document.querySelectorAll('[data-toggle="tooltip"]')
     );
+     // eslint-disable-next-line
     const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl);
     });

@@ -8,10 +8,11 @@ import AdminHeader from "./AdminHeader";
 
 const EditColab = () => {
   const { authState } = useContext(AuthContext);
-  const [modified, setModified] = useState(false);
+  
 
   useEffect(() => {
     if (!authState) navigate("/admin");
+     // eslint-disable-next-line
   }, []);
 
 
@@ -36,6 +37,7 @@ const EditColab = () => {
 
   useEffect(() => {
     dataLoad();
+     // eslint-disable-next-line
   }, []);
 
   //validation

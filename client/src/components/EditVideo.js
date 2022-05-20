@@ -15,8 +15,8 @@ const EditVideo = () => {
 
   useEffect(() => {
     if (!authState) navigate("/admin");
+     // eslint-disable-next-line
   }, []);
-  
 
   const handleClose = () => {
     navigate("/admin/dashboard");
@@ -40,6 +40,7 @@ const EditVideo = () => {
 
   useEffect(() => {
     dataLoad();
+     // eslint-disable-next-line
   }, []);
 
   const validateTitulo = (value) => {
