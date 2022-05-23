@@ -1,7 +1,7 @@
 import React, { Suspense } from "react";
 const VbContent = React.lazy(() => import("./VbContent"));
 
-const VbAdminDashboard = () => {
+const VbMain = () => {
   return (
     <div>
       <Suspense fallback={<div>loading</div>}>
@@ -11,4 +11,4 @@ const VbAdminDashboard = () => {
   );
 };
 
-export default VbAdminDashboard;
+export default VbMain;

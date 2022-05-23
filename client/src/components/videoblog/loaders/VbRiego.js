@@ -12,9 +12,9 @@ const VbRiego = () => {
       var temp = resp.data.sort((a, b) => a.id - b.id);
        temp = temp.reverse();
        temp = temp.slice(0, 5);
-      console.log(temp);
+    //  console.log(temp);
       setRiego(temp);
-      console.log(temp);
+     // console.log(temp);
     } catch (error) {
       console.log(error);
     }
@@ -27,14 +27,14 @@ const VbRiego = () => {
   return (
     <>
       <div className="container">
-        <div className="row">
+        <div className="row j-center">
           {riego.map((item) => (
             <div className="col-lg-2" key={item.id}>
-              <div className="card">
+              <div className="card allCard">
                 <img src="" className="card-img-top" alt="" />
                 <div className="card-body">
                   <p className="VbCard_fecha">{item.fecha}</p>
-                  <h4>{item.titulo}</h4>
+                  <h5 className="text_clamp">{item.titulo}</h5>
                 </div>
                 <div className="card-footer">
                   <p>Riego</p>

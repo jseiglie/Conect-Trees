@@ -12,7 +12,8 @@ import EditNews from "./components/EditNews";
 import EditColab from "./components/EditColab";
 import EditVideo from "./components/EditVideo";
 import axios from "axios";
-import Main from "./views/videoblog/Main";
+import VbHome from "./views/videoblog/VbHome";
+import VbNewsDisplay from "./components/videoblog/VbNewsDisplay"
 function App() {
   
   const [authState, setAuthState] = useState(false);
@@ -53,7 +54,8 @@ function App() {
             />
             <Route path="/admin/editvideo/:id" element={<EditVideo />} />
             <Route path="/colaboradores/edit/:id" element={<EditColab />} />
-            <Route path="/videoblog/home" element={<Main/>}/>
+            <Route path="/videoblog/home" element={<VbHome/>}/>
+            <Route path="/videoblog/news" element={<VbNewsDisplay/>}/>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

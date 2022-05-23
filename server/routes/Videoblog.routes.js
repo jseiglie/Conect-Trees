@@ -210,4 +210,11 @@ router.put("/videos", async (req, res)=>{
 });
 
 
+//Mostrar Noticia
+router.get("/news/:id", async (req, res) =>{
+  const id = req.params.id;
+  const news = await noticias_blog.findByPk(id);
+  res.json(news)
+})
+
 module.exports = router;
