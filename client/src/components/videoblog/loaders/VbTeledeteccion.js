@@ -11,8 +11,8 @@ const VbTeledeteccion = () => {
       );
       
       var temp = resp.data.sort((a, b) => a.id - b.id)
-      var temp = temp.reverse()
-      var temp = temp.slice(0,10)
+       temp = temp.reverse()
+       temp = temp.slice(0,5)
       console.log(temp)
       setTeledeteccion(temp);
       console.log(temp);
