@@ -20,7 +20,7 @@ const VbContent = () => {
 
   const categoriasLoad = async () => {
     await axios
-      .get("http://localhost:3001/videoblog/categorias")
+      .get("https://localhost:3001/videoblog/categorias")
       .then((res) => {
         setCategorias(res.data);
         console.log(categorias);

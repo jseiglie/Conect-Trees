@@ -55,7 +55,7 @@ function App() {
             <Route path="/admin/editvideo/:id" element={<EditVideo />} />
             <Route path="/colaboradores/edit/:id" element={<EditColab />} />
             <Route path="/videoblog/home" element={<VbHome/>}/>
-            <Route path="/videoblog/news" element={<VbNewsDisplay/>}/>
+            <Route path="/videoblog/news/:id" element={<VbNewsDisplay/>}/>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
