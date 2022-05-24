@@ -7,10 +7,9 @@ const { validateToken } = require("../middleware/authmiddleware");
 
 const imgUploadPath = "../client/public/img_videoblog/noticias_img"; //CAMBIAR EN EL SERVIDOR
 
-
-
 const {
   categorias_blog,
+  asig_etiquetas_blog,
   etiquetas_blog,
   noticias_blog,
   secciones,
@@ -23,6 +22,12 @@ const {
 router.get("/categorias", async (req, res) => {
   const categorias = await categorias_blog.findAll();
   res.json(categorias);
+});
+
+router.get("/categorias/:id", async (req, res) => {
+  const id = req.params.id;
+  const cat = await categorias_blog.findByPk(id);
+  res.json(cat);
 });
 
 ///ETIQUETAS
@@ -134,7 +139,7 @@ router.get("/noticias/proteccionvegetal", async (req, res) => {
   res.json(noticiastele);
 });
 ////NOTICIAS NUTRICION
-router.get("/noticias/nutricionvegetal", async (req, res) => {
+router.get("/noticias/nutricion", async (req, res) => {
   const noticiastele = await noticias_blog.findAll({
     where: {
       id_categoria: 5,
@@ -182,19 +187,19 @@ router.get("/videos", async (req, res) => {
 });
 
 //ADD VIDEO
-router.post("/videos", async (req, res)=>{
-    try {
-        const payload = req.body
-        await videos_blog.create(payload);
-        res.json(payload)
-    } catch (error) {
-        res.setEncoding(error);
-    }
-})
+router.post("/videos", async (req, res) => {
+  try {
+    const payload = req.body;
+    await videos_blog.create(payload);
+    res.json(payload);
+  } catch (error) {
+    res.setEncoding(error);
+  }
+});
 
 //EDIT VIDEO
-router.put("/videos", async (req, res)=>{
-    const id = req.params.id;
+router.put("/videos", async (req, res) => {
+  const id = req.params.id;
   const { titulo, titulo_seo, tipo, codigo, publicar } = req.body;
   await videos_blog.update(
     {
@@ -209,12 +214,21 @@ router.put("/videos", async (req, res)=>{
   res.json("Noticia/Video actualizado correctamente");
 });
 
-
 //Mostrar Noticia
-router.get("/news/:id", async (req, res) =>{
+router.get("/news/:id", async (req, res) => {
   const id = req.params.id;
   const news = await noticias_blog.findByPk(id);
-  res.json(news)
-})
+  res.json(news);
+});
+
+//get etiquetas
+router.get("/asigetiquetas/:id_noticia", async (req, res) => {
+  const id_noticia = req.params.id_noticia;
+  const results = await sequelize.query(
+    "SELECT asig_etiquetas_blog.id_etiqueta, asig_etiquetas_blog.id_noticia, etiquetas_blog.nombre, etiquetas_blog.id FROM asig_etiquetas_blog, etiquetas_blog WHERE etiquetas_blog.id=asig_etiquetas_blog.id_etiqueta AND asig_etiquetas_blog.id_noticia=?",
+    { replacements: [id_noticia] }
+  );
+  res.json(results);
+});
 
 module.exports = router;

@@ -1,11 +1,15 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import axios from "axios";
 import VbHeader from "./VbHeader";
 import VbFooter from "./VbFooter";
 import { useNavigate, useParams } from "react-router-dom";
-const VbDisplayNewsLatestLoader = React.lazy(() =>
+
+const VbEtiquetasLoad = lazy(() => import("./loaders/VbEtiquetasLoad"));
+
+const VbDisplayNewsLatestLoader = lazy(() =>
   import("./loaders/VbDisplayNewsLatestLoader")
 );
+
 const VbNewsDisplay = () => {
   let { id } = useParams();
   const navigate = useNavigate();
@@ -21,9 +25,7 @@ const VbNewsDisplay = () => {
     "sensorizacion",
     "bigdata",
   ];
-  
 
- 
   const dataLoad = async () => {
     const data = await axios.get(`http://localhost:3001/videoblog/news/${id}`);
     setNews(data.data);
@@ -35,14 +37,15 @@ const VbNewsDisplay = () => {
   }, []);
 
   useEffect(() => {
-    categoriaformat(`${news.id_categoria}`);
+    categoriaformat(`${news.id_categoria}`); // eslint-disable-next-line
   }, [news]);
 
   const categoriaformat = (cat) => {
-   return  categorias[cat];
+    return categorias[cat - 1];
   };
 
   let categoria = categoriaformat(`${news.id_categoria}`);
+  //console.log(news);
 
   return (
     <>
@@ -64,7 +67,13 @@ const VbNewsDisplay = () => {
                 <span className="NewsDisplay_subtitle">{news.intro}</span>
                 <div className="container NewsDisplay_catrrss mt-3 mb-3">
                   <div className="col">
-                    <p className="NewsDisplay_Categoria">{news.id_categoria}</p>
+                    <p className="NewsDisplay_Categoria">
+                      {categoria == "solucionesintegrales"
+                        ? "soluciones integrales"
+                        : categoria == "proteccionvegetal"
+                        ? "protección vegetal"
+                        : categoria}
+                    </p>
                   </div>
                   <div className="col NewsDisplay_rsscol">
                     <div className="rrss">
@@ -78,16 +87,28 @@ const VbNewsDisplay = () => {
                     </div>
                   </div>
                 </div>
+
                 <hr />
                 <div className="NewsDisplay_Descripcion">
                   <p className="NewsDisplay_texto">{news.descripcion}</p>
                 </div>
               </div>
             </div>
+            <div className="col">
+              <Suspense>
+                
+                <div className="card">
+                  <div className="card-body">
 
-            <Suspense>
-              <VbDisplayNewsLatestLoader get={`${categoria}`} log={categoria}/>
-            </Suspense>
+                  <VbEtiquetasLoad id={`${news.id}`} />
+                  </div>
+                </div>
+                <VbDisplayNewsLatestLoader
+                  get={`${categoria}`}
+                  log={categoria}
+                />
+              </Suspense>
+            </div>
           </div>
         </div>
       </article>

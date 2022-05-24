@@ -6,7 +6,7 @@ const VbNutricion = () => {
   const load = async () => {
     try {
       const resp = await axios.get(
-        "http://localhost:3001/videoblog/noticias/nutricionvegetal"
+        "http://localhost:3001/videoblog/noticias/nutricion"
       );
 
       var temp = resp.data.sort((a, b) => a.id - b.id);
