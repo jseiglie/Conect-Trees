@@ -128,6 +128,7 @@ display: flex;
 }
 .NewsDisplay_Categoria{
   justify-content: right;
+  font-size: 1.8rem;
 }
 
 
@@ -145,6 +146,15 @@ display: flex;
   font-size: 2rem;
 }
 
+.VbexternalLink{
+  color: #388f88;
+}
+
+.rrss-icon:hover{
+  box-shadow: 0px 3px 5px 0px wheat;
+  color: #388f88;
+}
+
 .NewsDisplay_Descripcion{
   text-indent: 2rem;
 }
@@ -157,11 +167,18 @@ display: flex;
 
 .NewsDisplay_Tags{
   display: flex;
-    justify-content: space-around;
+  
 }
 
 .NewsDisplay_Destacados{}
 
 .tags{
   background-color: aliceblue;
+  margin-left: 0.3rem;
 }
+
+.displayNews_card_header{
+  padding: 0;
+  height: 1.5rem;
+}
+

@@ -2,7 +2,7 @@ import React, { useState, useEffect, Suspense, lazy } from "react";
 import axios from "axios";
 import VbHeader from "./VbHeader";
 import VbFooter from "./VbFooter";
-import { useNavigate, useParams } from "react-router-dom";
+import { useHref, useNavigate, useParams } from "react-router-dom";
 
 const VbEtiquetasLoad = lazy(() => import("./loaders/VbEtiquetasLoad"));
 
@@ -68,9 +68,9 @@ const VbNewsDisplay = () => {
                 <div className="container NewsDisplay_catrrss mt-3 mb-3">
                   <div className="col">
                     <p className="NewsDisplay_Categoria">
-                      {categoria == "solucionesintegrales"
+                      {categoria === "solucionesintegrales"
                         ? "soluciones integrales"
-                        : categoria == "proteccionvegetal"
+                        : categoria === "proteccionvegetal"
                         ? "protección vegetal"
                         : categoria}
                     </p>
@@ -78,11 +78,30 @@ const VbNewsDisplay = () => {
                   <div className="col NewsDisplay_rsscol">
                     <div className="rrss">
                       <div className="NewsDisplay_wrap_rrss">
-                        <i className="rrss-icon fa-brands fa-twitter-square"></i>
-                        <i className="rrss-icon fa-brands fa-whatsapp-square"></i>
-                        <i className="rrss-icon fa-brands fa-facebook-square"></i>
-                        <i className="rrss-icon fa-brands fa-linkedin"></i>
-                        <i className="rrss-icon fa-solid fa-envelope"></i>
+                        <i
+                          className="rrss-icon fa-brands fa-twitter-square"
+                          onClick={(e) => {}}
+                        ></i>
+
+                        <a
+                          className="VbexternalLink"
+                          href="https://api.whatsapp.com/send?text=Mira%20lo%20que%20he%20encontrado%20en%20el%20videoblog%20de%20ConnecTrees"
+                        >
+                          <i className="rrss-icon fa-brands fa-whatsapp-square"></i>
+                        </a>
+
+                        <i
+                          className="rrss-icon fa-brands fa-facebook-square"
+                          onClick={(e) => {}}
+                        ></i>
+                        <i
+                          className="rrss-icon fa-brands fa-linkedin"
+                          onClick={(e) => {}}
+                        ></i>
+                        <i
+                          className="rrss-icon fa-solid fa-envelope"
+                          onClick={(e) => {}}
+                        ></i>
                       </div>
                     </div>
                   </div>
@@ -96,11 +115,9 @@ const VbNewsDisplay = () => {
             </div>
             <div className="col">
               <Suspense>
-                
                 <div className="card">
                   <div className="card-body">
-
-                  <VbEtiquetasLoad id={`${news.id}`} />
+                    <VbEtiquetasLoad id={`${news.id}`} />
                   </div>
                 </div>
                 <VbDisplayNewsLatestLoader

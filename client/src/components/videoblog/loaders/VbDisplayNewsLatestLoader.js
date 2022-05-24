@@ -27,20 +27,17 @@ const VbDisplayNewsLatestLoader = (props) => {
   
   return (
     <>
-     
-      
-        <div className="card-body">
-          <p></p>
-        </div>
-      
       <div className="NewsDisplay_Tags"></div>
       <h4>Noticias recientes</h4>
       <div className="NewsDisplay_Destacados">
         {latest.map((item, i) => (
           <div className="card" key={i}>
             {/* {console.log(item)} */}
-            <div className="card-body">
+            <div className="card-header displayNews_card_header">
               <p>{item.fecha}</p>
+              </div>
+            <div className="card-body">
+              
               <h5>{item.titulo}</h5>
             </div>
           </div>
