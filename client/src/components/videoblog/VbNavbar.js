@@ -10,7 +10,7 @@ export const VbNavbar = () => {
           <span>
             <img
               className="navLogo"
-              src={"../img/connect1.png"}
+              src={"/../img_blog/connect1.png"}
               alt="ConnectTrees Digital Hub"
             ></img>
           </span>

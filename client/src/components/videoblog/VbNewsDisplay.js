@@ -2,6 +2,7 @@ import React, { useState, useEffect, Suspense, lazy } from "react";
 import axios from "axios";
 import VbHeader from "./VbHeader";
 import VbFooter from "./VbFooter";
+import VbNavbar from "./VbNavbar"
 import { useHref, useNavigate, useParams } from "react-router-dom";
 
 const VbEtiquetasLoad = lazy(() => import("./loaders/VbEtiquetasLoad"));
@@ -21,7 +22,7 @@ const VbNewsDisplay = () => {
     "riego",
     "proteccionvegetal",
     "nutricion",
-    "marquinaria",
+    "maquinaria",
     "sensorizacion",
     "bigdata",
   ];
@@ -49,7 +50,7 @@ const VbNewsDisplay = () => {
 
   return (
     <>
-      <VbHeader />
+      <VbNavbar />
       <article>
         <div className="container">
           <div className="row">
@@ -75,33 +76,50 @@ const VbNewsDisplay = () => {
                         : categoria}
                     </p>
                   </div>
-                  <div className="col NewsDisplay_rsscol">
+                  <div className="col-3 NewsDisplay_rsscol">
                     <div className="rrss">
                       <div className="NewsDisplay_wrap_rrss">
-                        <i
-                          className="rrss-icon fa-brands fa-twitter-square"
-                          onClick={(e) => {}}
-                        ></i>
+                        <a
+                          href="https://twitter.com/ConnecTreesDig"
+                          target="_blank"
+                          rel="noreferrer"
+                          className="navItem navbarLink rrss"
+                        >
+                          <i className="rrss-icon fab fa-twitter"></i>
+                        </a>
 
                         <a
-                          className="VbexternalLink"
+                          className="navItem navbarLink rrss"
                           href="https://api.whatsapp.com/send?text=Mira%20lo%20que%20he%20encontrado%20en%20el%20videoblog%20de%20ConnecTrees"
                         >
                           <i className="rrss-icon fa-brands fa-whatsapp-square"></i>
                         </a>
 
-                        <i
-                          className="rrss-icon fa-brands fa-facebook-square"
-                          onClick={(e) => {}}
-                        ></i>
-                        <i
-                          className="rrss-icon fa-brands fa-linkedin"
-                          onClick={(e) => {}}
-                        ></i>
-                        <i
-                          className="rrss-icon fa-solid fa-envelope"
-                          onClick={(e) => {}}
-                        ></i>
+                        <a
+                          href="https://www.facebook.com/ConnecTrees-DigitalHub-108510918487855"
+                          rel="noreferrer"
+                          target="_blank"
+                          className="navItem navbarLink rrss"
+                        >
+                          <i className="rrss-icon fab fa-facebook-f"></i>
+                        </a>
+                        <a
+                          href="https://www.linkedin.com/company/connectrees/?viewAsMember=true"
+                          rel="noreferrer"
+                          target="_blank"
+                          className="navItem navbarLink rrss"
+                        >
+                          <i className="rrss-icon fab fa-linkedin-in"></i>
+                        </a>
+                        <a
+                          href="mailto:????@???.??"
+                          className="navItem navbarLink rrss"
+                        >
+                          <i
+                            className="rrss-icon fa-solid fa-envelope"
+                            onClick={(e) => {}}
+                          ></i>
+                        </a>
                       </div>
                     </div>
                   </div>
@@ -113,7 +131,7 @@ const VbNewsDisplay = () => {
                 </div>
               </div>
             </div>
-            <div className="col">
+            <div className="col-3">
               <Suspense>
                 <div className="card">
                   <div className="card-body">

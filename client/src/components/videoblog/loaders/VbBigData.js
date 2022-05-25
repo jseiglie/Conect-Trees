@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const VbBigData = () => {
+  const navigate = useNavigate();
+
     const [bigData, setBigData] = useState([]);
     const load = async () => {
         try {
@@ -16,14 +19,17 @@ const VbBigData = () => {
           setBigData(temp);
         //  console.log(temp);
         } catch (error) {
-          console.log(error);
+         // console.log(error);
         }
       };
     
       useEffect(() => {
+        setTimeout(load, 500)
         load();
       }, []);
-    
+      const handleClick = (e) => {
+        navigate(`/videoblog/news/${e.target.id}`)
+      };
       return (
         <>
           <div className="container">
@@ -34,7 +40,7 @@ const VbBigData = () => {
                     <img src="" className="card-img-top" alt="" />
                     <div className="card-body">
                       <p className="VbCard_fecha">{item.fecha}</p>
-                      <h4 className="text_clamp">{item.titulo}</h4>
+                      <h4 onClick={handleClick} id={item.id} className="text_clamp">{item.titulo}</h4>
                     </div>
                     <div className="card-footer">
                       <p>Big Data</p>

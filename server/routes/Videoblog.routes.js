@@ -231,4 +231,14 @@ router.get("/asigetiquetas/:id_noticia", async (req, res) => {
   res.json(results);
 });
 
+
+//intentional delay on undefined
+
+router.get("/noticias/undefined", async (req, res)=>{
+   const delay = setTimeout((() => {
+    res.json({error: 404})
+  }), 100)
+  return delay
+})
+
 module.exports = router;

@@ -6,6 +6,7 @@ const VbEtiquetasLoad = (props) => {
   const [tags, setTags] = useState([]);
 
   useEffect(() => {
+    setTimeout(loadTags, 500)
     loadTags();
   }, []);
 
@@ -18,7 +19,7 @@ const VbEtiquetasLoad = (props) => {
       // console.log(tags);
       // console.log(`http://localhost:3001/videoblog/asigetiquetas/${props.id}`);
     } catch (error) {
-      console.log(error);
+     // console.log(error);
     }
   };
 
@@ -27,9 +28,9 @@ const VbEtiquetasLoad = (props) => {
       <h5>Etiquetas:</h5>
       <div className="NewsDisplay_Tags">
         {tags.map((item, i) => (
-          <p key={item.id}>
-            <span className="tags">{item.nombre},</span>
-          </p>
+          <div key={item.id}>
+            <p className="tags">{item.nombre},</p>
+          </div>
         ))}
       </div>
     </div>

@@ -134,7 +134,7 @@ display: flex;
 
 .NewsDisplay_wrap_rrss{
   width: fit-content;
-  
+  display: flex;
 }
 .NewsDisplay_rsscol{
 
@@ -167,7 +167,7 @@ display: flex;
 
 .NewsDisplay_Tags{
   display: flex;
-  
+  flex-wrap: wrap;
 }
 
 .NewsDisplay_Destacados{}

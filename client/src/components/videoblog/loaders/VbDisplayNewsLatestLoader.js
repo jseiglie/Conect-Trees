@@ -4,9 +4,12 @@ import axios from "axios";
 
 const VbDisplayNewsLatestLoader = (props) => {
   useEffect(() => {
+    setTimeout(loadLatest, 500);
     loadLatest();
   }, []);
   const [latest, setLatest] = useState([""]);
+
+  const [error, setError] = useState(false);
 
   const loadLatest = async () => {
     try {
@@ -20,24 +23,28 @@ const VbDisplayNewsLatestLoader = (props) => {
       //console.log(`https://localhost:3001/videoblog/noticias/${props.log}`)
       //console.log(latest)
     } catch (error) {
-      console.log(error);
+      //console.log(error);
+      setError(true);
     }
   };
 
-  
+  if (error) {
+    loadLatest();
+    setError(false);
+  }
+
   return (
     <>
       <div className="NewsDisplay_Tags"></div>
       <h4>Noticias recientes</h4>
       <div className="NewsDisplay_Destacados">
         {latest.map((item, i) => (
-          <div className="card" key={i}>
+          <div className="card mb-3" key={i}>
             {/* {console.log(item)} */}
             <div className="card-header displayNews_card_header">
               <p>{item.fecha}</p>
-              </div>
+            </div>
             <div className="card-body">
-              
               <h5>{item.titulo}</h5>
             </div>
           </div>
