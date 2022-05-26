@@ -12,7 +12,7 @@ const VbFooter = () => {
           <div className="row">
             <img
               className="VbimgFooter mx-auto"
-              src={"../img/connect2_1.png"}
+              src={"/../img/connect2_1.png"}
               alt="ConnectTrees Digital Hub"
             ></img> 
           </div>

@@ -42,8 +42,16 @@ router.get("/noticias", async (req, res) => {
   res.json(noticias);
 });
 
+//ULTIMAS NOTICIAS
+router.get("/noticias/ultimas", async (req, res) => {
+  const latest = await noticias_blog.findAll({ 
+    order: [["fecha", "DESC"]] 
+  });
+  res.json(latest);
+});
+
 ///ADD NOTICIAS
-router.post("/noticias/", async (req, res) => {
+router.post("/noticias", async (req, res) => {
   try {
     let payload = req.body;
     await noticias.create("Noticia creada" + payload);
@@ -213,14 +221,6 @@ router.put("/videos", async (req, res) => {
   );
   res.json("Noticia/Video actualizado correctamente");
 });
-
-//Mostrar Noticia
-router.get("/news/:id", async (req, res) => {
-  const id = req.params.id;
-  const news = await noticias_blog.findByPk(id);
-  res.json(news);
-});
-
 //get etiquetas
 router.get("/asigetiquetas/:id_noticia", async (req, res) => {
   const id_noticia = req.params.id_noticia;
@@ -231,14 +231,34 @@ router.get("/asigetiquetas/:id_noticia", async (req, res) => {
   res.json(results);
 });
 
+//Mostrar Noticia
+router.get("/news/:id", async (req, res) => {
+  const id = req.params.id;
+  const news = await noticias_blog.findByPk(id);
+  res.json(news);
+});
+
+//EDIT noticia
+router.put("/noticias/edit/:id", async (req, res)=>{
+  const id = req.params.id
+  const {publicar} = req.body;
+  await noticias_blog.update(
+    {publicar: publicar},
+    {where: {id:id}}
+  )
+res.json("Publicar actualizado")
+})
+
+ 
+
 
 //intentional delay on undefined
 
-router.get("/noticias/undefined", async (req, res)=>{
-   const delay = setTimeout((() => {
-    res.json({error: 404})
-  }), 100)
-  return delay
-})
+router.get("/noticias/undefined", async (req, res) => {
+  const delay = setTimeout(() => {
+    res.json({ error: 404 });
+  }, 100);
+  return delay;
+});
 
 module.exports = router;

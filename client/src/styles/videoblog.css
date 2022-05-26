@@ -1,4 +1,135 @@
+/*LOGIN*/
+.VbLoginTitle{
+  color: #388f88;
+  padding: 1rem;
+}
+
+
+
 /*Navbar*/
+.VbnavbarWrap {
+  place-content: center;
+}
+
+.VbnavbarRrssIcon {
+  margin-bottom: 0px;
+}
+
+.VbnavLogo {
+  width: 15rem;
+  margin-left: 2rem;
+  height: auto;
+}
+
+.VbnavbarTitle {
+  color: #388f88;
+  margin-bottom: 0;
+}
+.VbDestacadasWrap {
+  align-self: center;
+}
+.VbnavMenu {
+  background: white;
+  display: flex;
+  position: sticky;
+  justify-content: space-evenly;
+  width: 80%;
+  align-items: center;
+}
+
+.Vblatest-card-wrap{
+  border: 0;
+  background-color: aliceblue;
+}
+
+.VbLoMas{
+  transform: rotate(180deg);
+  color: wheat;
+  text-align: center;
+}
+
+.VbDestacadasWrap{
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+.Vbcard-header{
+  background-color: #388f88;
+  transform: rotate(180deg);
+  border-radius: 0.4rem !important;
+}
+.VbDestacadasListWrap {  
+  border-radius: 1rem;
+  box-shadow: 0px 5px 8px 0px rgb(189, 127, 13);
+  background-color: aliceblue;
+  
+}
+
+.Vblatest-card {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.Vblatest-card:hover {
+  box-shadow: 0px 0px 8px 0px wheat;
+}
+
+.Vblatest-card-body {
+  margin-bottom: 1rem;
+}
+
+.VbnavItem {
+  list-style-type: none;
+  justify-content: space-evenly;
+}
+
+.Vbrrss {
+  font-size: 1rem;
+  color: #388f88;
+  justify-content: space-evenly;
+}
+
+li > a {
+  color: #388f88;
+  text-decoration: none;
+  font-weight: bold;
+}
+li > a:hover {
+  color: wheat;
+}
+.Vbrrss:hover {
+  cursor: pointer;
+}
+
+.VbnavbarLink {
+  position: relative;
+  text-decoration: none;
+}
+
+.VbnavbarLink:hover {
+  color: #388f88;
+  color: wheat;
+  cursor: pointer;
+}
+
+.VbnavbarLink::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background-color: wheat;
+  bottom: 0;
+  left: 0;
+  transform-origin: right;
+  transform: scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.VbnavbarLink:hover::before {
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
 .VbTitleMainHolder {
   align-self: center;
 }
@@ -84,101 +215,139 @@ li > a {
   overflow: hidden;
 }
 
-.allCard{
+.allCard {
   height: 17rem;
   width: auto;
   margin-bottom: 1rem;
 }
 
-.j-center{
+.j-center {
   justify-content: center;
 }
 
-.Vb__content{
+.Vb__content {
   display: none;
 }
 
-.Vb__active__content{
+.Vb__active__content {
   display: flow-root;
 }
 
-.NewsDisplay_img_holder{
-
+.NewsDisplay_img_holder {
 }
-.NewsDisplay_img{
-
+.NewsDisplay_img {
 }
 
-.NewsDisplay_news{}
+.NewsDisplay_news {
+}
 
-.NewsDisplay_fecha{
+.NewsDisplay_fecha {
   font-size: 1rem;
 }
 
-.NewsDisplay_title{
-  
+.NewsDisplay_title {
 }
 
-.NewsDisplay_subtitle{
+.NewsDisplay_subtitle {
   background-color: aliceblue;
 }
-.NewsDisplay_catrrss{
-display: flex;
-
+.NewsDisplay_catrrss {
+  display: flex;
 }
-.NewsDisplay_Categoria{
+.NewsDisplay_Categoria {
   justify-content: right;
   font-size: 1.8rem;
 }
 
-
-.NewsDisplay_wrap_rrss{
+.NewsDisplay_wrap_rrss {
   width: fit-content;
   display: flex;
 }
-.NewsDisplay_rsscol{
-
+.NewsDisplay_rsscol {
   text-align: -webkit-right;
 }
 
-.rrss-icon{
-  padding: 0.2rem;
-  font-size: 2rem;
+.rrss-icon {
+  font-size: 1.5rem;
 }
 
-.VbexternalLink{
+.VbexternalLink {
   color: #388f88;
 }
 
-.rrss-icon:hover{
+.rrss-icon:hover {
   box-shadow: 0px 3px 5px 0px wheat;
   color: #388f88;
 }
 
-.NewsDisplay_Descripcion{
+.NewsDisplay_Descripcion {
   text-indent: 2rem;
 }
-.NewsDisplay_Descripcion>p{
+.NewsDisplay_Descripcion > p {
   margin-top: 3rem;
   margin-bottom: 5rem;
 }
 
-.NewsDisplay_texto{}
+.NewsDisplay_texto {
+}
 
-.NewsDisplay_Tags{
+.NewsDisplay_Tags {
   display: flex;
   flex-wrap: wrap;
 }
 
-.NewsDisplay_Destacados{}
+.NewsDisplay_Destacados {
+}
 
-.tags{
+.tags {
   background-color: aliceblue;
   margin-left: 0.3rem;
 }
 
-.displayNews_card_header{
+.displayNews_card_header {
   padding: 0;
   height: 1.5rem;
 }
 
+.Vblatesttitle {
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+
+/* PAGINATION */
+.pagination {
+  justify-content: center;
+  display: flex;
+  list-style: none;
+  outline: none;
+ }
+  
+ .pagination>.active>a {
+  background-color: wheat;
+  color: #fff;
+ }
+  
+ .pagination>li>a {
+  border: 1px solid #388f88;
+  padding: 5px 10px;
+  outline: none;
+  cursor: pointer;
+ }
+  
+ .pagination>li>a, .pagination>li>span {
+  color: #388f88;
+  
+ }
+
+ .active{
+   color: wheat;
+ }
+
+ .VbDisplay_wrapper{
+   margin-left: auto;
+   margin-right: auto;
+   width: 80%;
+ }

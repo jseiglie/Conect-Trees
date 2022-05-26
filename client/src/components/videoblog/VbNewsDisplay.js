@@ -54,7 +54,7 @@ const VbNewsDisplay = () => {
       <article>
         <div className="container">
           <div className="row">
-            <div className="col-9">
+            <div className="col-12 col-lg-9">
               <div className="NewsDisplay_img_holder">
                 <img
                   className="NewsDisplay_img"
@@ -67,6 +67,7 @@ const VbNewsDisplay = () => {
                 <h1 className="NewsDisplay_title">{news.titulo}</h1>
                 <span className="NewsDisplay_subtitle">{news.intro}</span>
                 <div className="container NewsDisplay_catrrss mt-3 mb-3">
+                  <div className="row">
                   <div className="col">
                     <p className="NewsDisplay_Categoria">
                       {categoria === "solucionesintegrales"
@@ -76,20 +77,20 @@ const VbNewsDisplay = () => {
                         : categoria}
                     </p>
                   </div>
-                  <div className="col-3 NewsDisplay_rsscol">
+                  <div className="col-12 col-lg-3  NewsDisplay_rsscol">
                     <div className="rrss">
                       <div className="NewsDisplay_wrap_rrss">
                         <a
                           href="https://twitter.com/ConnecTreesDig"
                           target="_blank"
                           rel="noreferrer"
-                          className="navItem navbarLink rrss"
+                          className="navItem navbarLink Vbrrss"
                         >
                           <i className="rrss-icon fab fa-twitter"></i>
                         </a>
 
                         <a
-                          className="navItem navbarLink rrss"
+                          className="navItem navbarLink Vbrrss"
                           href="https://api.whatsapp.com/send?text=Mira%20lo%20que%20he%20encontrado%20en%20el%20videoblog%20de%20ConnecTrees"
                         >
                           <i className="rrss-icon fa-brands fa-whatsapp-square"></i>
@@ -99,7 +100,7 @@ const VbNewsDisplay = () => {
                           href="https://www.facebook.com/ConnecTrees-DigitalHub-108510918487855"
                           rel="noreferrer"
                           target="_blank"
-                          className="navItem navbarLink rrss"
+                          className="navItem navbarLink Vbrrss"
                         >
                           <i className="rrss-icon fab fa-facebook-f"></i>
                         </a>
@@ -107,13 +108,13 @@ const VbNewsDisplay = () => {
                           href="https://www.linkedin.com/company/connectrees/?viewAsMember=true"
                           rel="noreferrer"
                           target="_blank"
-                          className="navItem navbarLink rrss"
+                          className="navItem navbarLink Vbrrss"
                         >
                           <i className="rrss-icon fab fa-linkedin-in"></i>
                         </a>
                         <a
                           href="mailto:????@???.??"
-                          className="navItem navbarLink rrss"
+                          className="navItem navbarLink Vbrrss"
                         >
                           <i
                             className="rrss-icon fa-solid fa-envelope"
@@ -121,6 +122,7 @@ const VbNewsDisplay = () => {
                           ></i>
                         </a>
                       </div>
+                    </div>
                     </div>
                   </div>
                 </div>
@@ -131,7 +133,7 @@ const VbNewsDisplay = () => {
                 </div>
               </div>
             </div>
-            <div className="col-3">
+            <div className="col-md-12 col-lg-3">
               <Suspense>
                 <div className="card">
                   <div className="card-body">

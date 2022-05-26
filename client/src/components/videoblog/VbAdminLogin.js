@@ -1,9 +1,19 @@
-import React from 'react'
+import React from "react";
+import AdminFooter from "../AdminFooter";
+
+
+import VbHeader from "./VbHeader";
+import VbLoginForm from "./VbLoginForm";
 
 const VbAdminLogin = () => {
   return (
-    <div>VbAdminLogin</div>
-  )
-}
+    <div className="login__wrapper">
+      <VbHeader />
 
-export default VbAdminLogin
+      <VbLoginForm/>
+      <AdminFooter />
+    </div>
+  );
+};
+
+export default VbAdminLogin;

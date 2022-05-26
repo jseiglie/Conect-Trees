@@ -29,7 +29,7 @@ const VbEtiquetasLoad = (props) => {
       <div className="NewsDisplay_Tags">
         {tags.map((item, i) => (
           <div key={item.id}>
-            <p className="tags">{item.nombre},</p>
+            <p className="tags">{item.nombre}</p>
           </div>
         ))}
       </div>

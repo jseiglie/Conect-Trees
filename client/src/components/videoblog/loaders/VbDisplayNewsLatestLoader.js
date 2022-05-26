@@ -44,8 +44,8 @@ const VbDisplayNewsLatestLoader = (props) => {
             <div className="card-header displayNews_card_header">
               <p>{item.fecha}</p>
             </div>
-            <div className="card-body">
-              <h5>{item.titulo}</h5>
+            <div className="card-body VbLatestBody">
+              <h5 className="Vblatesttitle">{item.titulo}</h5>
             </div>
           </div>
         ))}

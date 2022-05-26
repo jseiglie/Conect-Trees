@@ -14,6 +14,8 @@ import EditVideo from "./components/EditVideo";
 import axios from "axios";
 import VbHome from "./views/videoblog/VbHome";
 import VbNewsDisplay from "./components/videoblog/VbNewsDisplay"
+import VbAdminLogin from "./components/videoblog/VbAdminLogin";
+import VbAdminDashboard from "./components/videoblog/VbAdminDashboard";
 function App() {
   
   const [authState, setAuthState] = useState(false);
@@ -56,6 +58,8 @@ function App() {
             <Route path="/colaboradores/edit/:id" element={<EditColab />} />
             <Route path="/videoblog/home" element={<VbHome/>}/>
             <Route path="/videoblog/news/:id" element={<VbNewsDisplay/>}/>
+            <Route path="/videoblog/admin" element={<VbAdminLogin/>}/>
+            <Route path="/videoblog/admin/dashboard" element={<VbAdminDashboard />}/>
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
