@@ -319,6 +319,8 @@ li > a {
 
 /* PAGINATION */
 .pagination {
+  margin-left: auto;
+  margin-right: auto;
   justify-content: center;
   display: flex;
   list-style: none;
@@ -350,4 +352,8 @@ li > a {
    margin-left: auto;
    margin-right: auto;
    width: 80%;
+ }
+
+ .content__wrapp{
+   justify-content: center;
  }

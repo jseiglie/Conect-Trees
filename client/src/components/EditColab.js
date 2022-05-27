@@ -140,7 +140,7 @@ const EditColab = () => {
           <div className="container">
              <div className="row iconXPos">
           <span onClick={handleClose} className="iconX">
-            <i class="fas fa-xmark"></i>
+            <i className="fas fa-xmark"></i>
           </span>
         </div>
         <h3 className=" text-center add_edit_title">Editar Colaborador</h3>

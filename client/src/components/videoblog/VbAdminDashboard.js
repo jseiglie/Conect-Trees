@@ -18,8 +18,6 @@ const VbAdminDashboard = () => {
 
   return (
     <>
-      <VbHeader />
-      <VbAdminLogout />
       <div className="row content__wrapp ">
         <Suspense fallback={<h1>Cargando</h1>}>
           <VbAdminLoader />

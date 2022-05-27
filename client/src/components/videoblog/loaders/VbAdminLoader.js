@@ -21,7 +21,7 @@ const VbAdminLoader = () => {
       const slice = temp.slice(offset - 1, offset - 1 + perPage);
       setAllNews(slice);
       setPageCount(Math.ceil(temp.length / perPage));
-      console.log(allNews);
+      //console.log(allNews);
     } catch (error) {
       console.log(error);
       setError(true);
@@ -60,7 +60,7 @@ const VbAdminLoader = () => {
 
   const publicarActivate = async (e, publi) => {
     setActiveToggle(publi);
-    console.log("1 publicar -> " + publi + "  estado togle -> " + activeToggle);
+    // console.log("1 publicar -> " + publi + "  estado togle -> " + activeToggle);
     let payload;
     publi === "SI"
       ? (payload = { publicar: "NO" })
@@ -75,14 +75,14 @@ const VbAdminLoader = () => {
         })
         .then((e) => console.log(e));
       console.log(`http://localhost:3001/videoblog/noticias/edit/${e}`);
-      console.log(
-        "2 publicar -> " +
-          publi +
-          "  payload -> " +
-          payload +
-          "  estado togle -> " +
-          activeToggle
-      );
+      // console.log(
+      //   "2 publicar -> " +
+      //     publi +
+      //     "  payload -> " +
+      //     payload +
+      //     "  estado togle -> " +
+      //     activeToggle
+      // );
     } catch (error) {
       console.log(error);
     }
@@ -93,9 +93,13 @@ const VbAdminLoader = () => {
 
   return (
     <>
+    <div className="row">
+      <div className="container ">
+
+
       <ReactPaginate
-        previousLabel={"Anterior"}
-        nextLabel={"siguiente"}
+        previousLabel={"<<"}
+        nextLabel={">>"}
         breakLabel={"..."}
         breakClassName={"break_me"}
         pageCount={pageCount}
@@ -103,27 +107,29 @@ const VbAdminLoader = () => {
         containerClassName={"pagination"}
         subContainerClassName={"pages pagination"}
         activaClassName={"active"}
-      />
+        />
+        </div>
+        </div>
       <div className="container">
         {allNews.map((item) => (
           <div className="row VbDisplay_wrapper" key={item.id}>
             <div className="col-6">
-              <p className="table_items">{item.titulo}</p>
+              <p className="table_items text_clamp">{item.titulo}</p>
             </div>
-            <div className="table_items col-sm-2">
+            <div className="table_items col-2">
               <i
-                onClick={() => navigate(`/admin/editvideo/${item.id}`)}
+                onClick={() => navigate(`/videoblog/admin/editnews/${item.id}`)}
                 className="fas fa-pen dashboard_icon"
               ></i>
             </div>
-            <div className="table_items col-sm-2">
+            <div className="table_items col-2">
               <i
                 onClick={() => handleTrashClick(item.id)}
                 className="fas fa-trash dashboard_icon"
               ></i>
             </div>
 
-            <div className="table_items col-sm-2">
+            <div className="table_items col-2">
               {item.publicar === "SI" ? (
                 <i
                   className="fa-solid fa-circle-check dashboard_icon"

@@ -288,7 +288,7 @@ const EditNews = () => {
           <div className="container">
             <div className="row iconXPos">
               <span onClick={handleClose} className="iconX">
-                <i class="fas fa-xmark"></i>
+                <i className="fas fa-xmark"></i>
               </span>
             </div>
             <div className="col-sm-12">

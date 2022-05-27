@@ -2,23 +2,28 @@ import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import { AuthContext } from "../helpers/AuthContext";
-const AdminLogout = () => {
+const AdminControl = () => {
   const navigate = useNavigate();
   const { setAuthState } = useContext(AuthContext);
+  
   const handleLogOut = () => {
     localStorage.removeItem("accessToken");
+    sessionStorage.removeItem("active")
     setAuthState(false);
     navigate("/admin");
   };
+
+
+
   return (
-    <div className="container-fluid logout_container">
-      <div className="logout_container">
+    // <div className="container-fluid logout_container">
+      //<div className="logout_container">
         <button className="btn admin_logout" onClick={handleLogOut}>
           Salir
         </button>
-      </div>
-    </div>
+      //</div>
+    //</div> 
   );
 };
 
-export default AdminLogout;
+export default AdminControl;

@@ -16,6 +16,7 @@ import VbHome from "./views/videoblog/VbHome";
 import VbNewsDisplay from "./components/videoblog/VbNewsDisplay"
 import VbAdminLogin from "./components/videoblog/VbAdminLogin";
 import VbAdminDashboard from "./components/videoblog/VbAdminDashboard";
+import VbAdminEditNews from "./components/videoblog/VbAdminEditNews";
 function App() {
   
   const [authState, setAuthState] = useState(false);
@@ -59,7 +60,8 @@ function App() {
             <Route path="/videoblog/home" element={<VbHome/>}/>
             <Route path="/videoblog/news/:id" element={<VbNewsDisplay/>}/>
             <Route path="/videoblog/admin" element={<VbAdminLogin/>}/>
-            <Route path="/videoblog/admin/dashboard" element={<VbAdminDashboard />}/>
+            <Route path="/videoblog/admin/dashboard" element={<VbAdminDashboard/>}/>
+            <Route path="/videoblog/admin/editnews/:id" element={<VbAdminEditNews/>} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

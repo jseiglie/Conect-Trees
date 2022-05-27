@@ -1,3 +1,33 @@
+.wrapperControl {
+  margin-top: -3rem;
+  /* text-align: center; */
+}
+.btn_toggler{
+  margin: 0;
+  background-color: #388f88 !important;
+  padding: 0.5rem 1rem;
+  margin-left: 3rem; 
+  border-color: none !important
+}
+
+
+
+
+.admin_logout {
+float: right; 
+  padding: 1rem;
+  background: linear-gradient(
+    180deg,
+    rgb(151, 229, 223) 0%,
+    rgb(255, 255, 255) 77%
+  );
+  transform: matrix3d();
+  border-radius: 1rem;
+  box-shadow: 0px 3px 10px 2px #72d6ce;
+  /* margin-bottom: 1rem;*/
+  margin-right: 3rem; 
+}
+
 .admin_logo__holder {
   margin-left: auto;
   margin-right: auto;
@@ -120,19 +150,7 @@
   padding: 0;
   margin-top: -4.5rem;
 }
-.admin_logout {
-  padding: 1rem;
-  background: linear-gradient(
-    180deg,
-    rgb(151, 229, 223) 0%,
-    rgb(255, 255, 255) 77%
-  );
-  transform: matrix3d();
-  border-radius: 1rem;
-  box-shadow: 0px 3px 10px 2px #72d6ce;
-  margin-bottom: 1rem;
-  margin-right: 6rem;
-}
+
 
 .admin_logout:hover{
   transform: perspective(80px) rotateX(-25deg);
