@@ -1,24 +1,15 @@
 import axios from "axios";
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Formik, Field, Form } from "formik";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../helpers/AuthContext";
 
-const VbAdminEditNews = () => {
+const VbAdminAddNews = () => {
   const { authState } = useContext(AuthContext);
-  let { id } = useParams();
-  const [news, setNews] = useState([]);
   const navigate = useNavigate();
-
   useEffect(() => {
-    if (!authState) navigate("/admin");
-    loadNews(id); // eslint-disable-next-line
+    if (!authState) navigate("/admin"); // eslint-disable-next-line
   }, []);
-
-  const loadNews = async () => {
-    const data = await axios.get(`http://localhost:3001/videoblog/news/${id}`);
-    setNews(data.data);
-  };
 
   // Messages
   const required = "This field is required";
@@ -96,7 +87,8 @@ const VbAdminEditNews = () => {
     navigate("/admin/dashboard");
   };
 
-  const validateCategoria = (value) => {
+
+  const validateCategoria = (value) =>{
     let error;
     if (!value) {
       error = required;
@@ -111,25 +103,33 @@ const VbAdminEditNews = () => {
       <Formik
         initialValues={{
           id_categoria: "",
+          fecha: "",
+          hora: "",
+          user: "",
           titulo: "",
+          intro: "",
           seo: "",
+          descripcion: "",
           ultima_modificacion: "",
           user_modificacion: "",
+          ruta_img: "",
+          alt_img: "",
+          video: "",
           tipo_video: "",
           codigo_video: "",
+          visitas: 0,
           publicar: "",
-          destacada: ""
         }}
         onSubmit={(values, { setSubmitting }) => {
-          console.log(values);
-          axios.put(`http://localhost:3001/videoblog/admin/fulledit/${news.id} `, values, {
+          console.log(values)
+          axios.post("http://localhost:3001/videoblog/admin/noticias", values, {
             headers: {
               accessToken: localStorage.getItem("accessToken"),
             },
           });
           //   .then(console.log("testing"));
           // console.log(JSON.stringify(values, null, 2));
-          alert("Noticia-video editada correctamente");
+          alert("Noticia-video agregado correctamente");
           setSubmitting(false);
 
           navigate("/admin/dashboard");
@@ -143,43 +143,38 @@ const VbAdminEditNews = () => {
                   <i className=" fas fa-xmark"></i>
                 </span>
               </div>
-              <h3 className="text-center add_edit_title">Editar Noticia</h3>
+              <h3 className="text-center add_edit_title">Añadir video</h3>
             </div>
-            <div className="row container-fluid">
-            <div className="col-lg-4">
-            <div className="card guia_video_noticia">
-              <div className="card-body ">
-                <p>Fecha: {news.fecha} </p>
-                <p>Hora: {news.hora} </p>
-                <p>Titulo: {news.titulo} </p>
-                <p>Titulo SEO: {news.titulo_seo} </p>
-                <p>Tipo de video: {news.tipo} </p>
-                <p>Codigo de video: {news.codigo} </p>
-                <p>Sección: {news.seccion} </p>
-                <p>Publicar: {news.publicar} </p>
-              </div>
-            </div>
-          </div>
-          <div className="col-lg-8">
+            <div className="col-sm-12">
               <Form>
                 <div className="form-group">
-                  <label htmlFor="fecha_modificacion">Fecha modificación</label>
+                  <label htmlFor="fecha">Fecha</label>
                   <Field
-                    id="fecha_modificacion"
+                    id="fecha"
                     className="form-control"
                     type="date"
-                    placeholder="fecha_modificacion"
-                    name="ultima_modificacion"
+                    placeholder="fecha"
+                    name="fecha"
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="user_modificacion">Usuario que modifica</label>
+                  <label htmlFor="hora">Hora</label>
                   <Field
-                    id="user_modificacion"
+                    id="hora"
+                    className="form-control"
+                    type="time"
+                    placeholder="hora"
+                    name="hora"
+                  />
+                </div>
+                <div className="form-group">
+                  <label htmlFor="user">Usuario que crea la noticia</label>
+                  <Field
+                    id="user"
                     className="form-control"
                     type="text"
-                    placeholder="Usuario que modifica"
-                    name="user_modificacion"
+                    placeholder="Usuario que crea la noticia"
+                    name="user"
                   />
                 </div>
                 <div className="form-group">
@@ -188,6 +183,7 @@ const VbAdminEditNews = () => {
                     id="id_categoria"
                     className="form-control"
                     name="id_categoria"
+                    
                     as="select"
                     validate={validateCategoria}
                   >
@@ -310,11 +306,10 @@ const VbAdminEditNews = () => {
               </Form>
             </div>
           </div>
-          </div>
         )}
       </Formik>
     </>
   );
 };
 
-export default VbAdminEditNews;
+export default VbAdminAddNews;

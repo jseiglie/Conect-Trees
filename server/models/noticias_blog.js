@@ -74,6 +74,10 @@ module.exports = function(sequelize, DataTypes) {
     publicar: {
       type: DataTypes.CHAR(2),
       allowNull: false
+    },
+    destacada: {
+      type: DataTypes.BOOLEAN,
+     defaultValue: false,
     }
   }, {
     sequelize,

@@ -13,7 +13,9 @@ const ConnecloversLoad = () => {
       const resp = await axios.get(
         "http://localhost:3001/digitalhub/connectlovers"
       );
-      setConnecLovers(resp.data);
+      var temp = resp.data.sort((a, b) => a.id - b.id);
+      temp = temp.reverse();
+      setConnecLovers(temp);
     } catch (error) {
       console.log(error);
     }

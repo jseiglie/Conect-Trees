@@ -6,29 +6,28 @@ import Player from "./Player";
 const ConnectLovers = () => {
   const thumb = "https://img.youtube.com/vi/";
   // const youtube = "https://www.youtube.com/watch?v=";
-  const youtube="https://youtu.be/"
+  const youtube = "https://youtu.be/";
 
-  const [connectLoversMedia, setConnectLoversMedia] = useState([])
+  const [connectLoversMedia, setConnectLoversMedia] = useState([]);
 
-//carga Dinamica
+  //carga Dinamica
 
-const loadConnectLovers = async () => {
-  await axios
-    .get("http://localhost:3001/digitalhub/connectlovers")
-    .then((res) => {
-      setConnectLoversMedia(res.data);
-      //console.log(res.data);
-    });
-};
+  const loadConnectLovers = async () => {
+    const resp = await axios.get(
+      "http://localhost:3001/digitalhub/connectlovers"
+    );
+    var temp = resp.data.sort((a, b) => a.id - b.id);
+    temp = temp.reverse();
+    temp = temp.slice(0, 4);
+    setConnectLoversMedia(temp);
+  };
 
-useEffect(() => {
-  loadConnectLovers();
-}, []);
-
-
+  useEffect(() => {
+    loadConnectLovers();
+  }, []);
 
   // carga estática
-  // 
+  //
   //const connectLoversMedia = [
   //   {
   //     video: "YppmKjBSAe0",

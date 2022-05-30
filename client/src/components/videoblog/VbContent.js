@@ -28,7 +28,7 @@ const VbContent = () => {
   };
 
   useEffect(() => {
-    setTimeout(categoriasLoad, 500)
+    setTimeout(categoriasLoad, 500);
     categoriasLoad();
   }, []);
 
@@ -46,7 +46,7 @@ const VbContent = () => {
   };
 
   const handleClick = (e) => {
-   // console.log(e.target.value);
+    // console.log(e.target.value);
     setActive(e.target.value);
   };
 

@@ -1,10 +1,8 @@
 /*LOGIN*/
-.VbLoginTitle{
+.VbLoginTitle {
   color: #388f88;
   padding: 1rem;
 }
-
-
 
 /*Navbar*/
 .VbnavbarWrap {
@@ -37,32 +35,32 @@
   align-items: center;
 }
 
-.Vblatest-card-wrap{
+.Vblatest-card-wrap {
   border: 0;
   background-color: aliceblue;
 }
 
-.VbLoMas{
+.VbLoMas {
   transform: rotate(180deg);
   color: wheat;
   text-align: center;
 }
 
-.VbDestacadasWrap{
+.VbDestacadasWrap {
   padding: 0.5rem;
   border-radius: 1rem;
+  align-self: flex-start;
 }
 
-.Vbcard-header{
+.Vbcard-header {
   background-color: #388f88;
   transform: rotate(180deg);
   border-radius: 0.4rem !important;
 }
-.VbDestacadasListWrap {  
+.VbDestacadasListWrap {
   border-radius: 1rem;
   box-shadow: 0px 5px 8px 0px rgb(189, 127, 13);
   background-color: aliceblue;
-  
 }
 
 .Vblatest-card {
@@ -73,9 +71,6 @@
   box-shadow: 0px 0px 8px 0px wheat;
 }
 
-.Vblatest-card-body {
-  margin-bottom: 1rem;
-}
 
 .VbnavItem {
   list-style-type: none;
@@ -145,10 +140,13 @@ li > a {
 }
 .VbDestacadaTop {
   background-image: url("../../public/img_blog/noticias/ConnecTrees_FIMA_2022.png");
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
-  height: 40rem;
-  background-position: center;
+  /* background-position: center; */
+  height: 30rem;
+  display: flex;
+  min-height: 15rem;
+  max-height: 31rem;
   border-radius: 1rem;
   width: auto;
   /* box-shadow: 0px 20px 10px 2px; */
@@ -316,7 +314,6 @@ li > a {
   overflow: hidden;
 }
 
-
 /* PAGINATION */
 .pagination {
   margin-left: auto;
@@ -325,35 +322,91 @@ li > a {
   display: flex;
   list-style: none;
   outline: none;
- }
-  
- .pagination>.active>a {
+}
+
+.pagination > .active > a {
   background-color: wheat;
   color: #fff;
- }
-  
- .pagination>li>a {
+}
+
+.pagination > li > a {
   border: 1px solid #388f88;
   padding: 5px 10px;
   outline: none;
   cursor: pointer;
- }
-  
- .pagination>li>a, .pagination>li>span {
+}
+
+.pagination > li > a,
+.pagination > li > span {
   color: #388f88;
+}
+
+.active {
+  color: wheat;
+}
+
+.VbDisplay_wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  display: flex;
+  flex-flow: row;
+}
+
+.content__wrapp {
+  justify-content: center;
+}
+
+.listCategoria{
+  align-self: flex-end;
   
- }
+}
 
- .active{
-   color: wheat;
- }
+.VbDestacadaWrap{
+  background-color: aliceblue;
+  border-top: 3px solid#388f88;
+  
+}
 
- .VbDisplay_wrapper{
-   margin-left: auto;
-   margin-right: auto;
-   width: 80%;
- }
+.VbDestacadaIcon{
+  margin-left: 0.5rem;
+}
 
- .content__wrapp{
-   justify-content: center;
- }
+.VbDestacar:hover{
+  cursor: pointer;
+}
+
+/* .VbInnerLine{
+  padding-bottom: 1.5rem;
+} */
+
+.VbOutterLine{
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  color: teal;
+}
+
+.VbBtn{
+  margin-bottom: 1rem;
+  margin-top: 0.5rem;
+}
+
+.VbFechaDestacadaTop{
+  font-size: small;
+}
+.destacadaExtLink{
+  text-decoration: none;
+  font-weight: bold;
+  color: #388f88;
+}
+.destacadaExtLink:hover{
+  color: wheat; 
+}
+
+.VbDestacadaMasNuevoText{
+  margin: 0;
+}
+
+.VbCategoriaTop{
+  background-color: aliceblue;
+}

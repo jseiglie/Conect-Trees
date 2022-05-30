@@ -1,9 +1,8 @@
 import React, { useState, useEffect, Suspense, lazy } from "react";
 import axios from "axios";
-import VbHeader from "./VbHeader";
 import VbFooter from "./VbFooter";
 import VbNavbar from "./VbNavbar"
-import { useHref, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const VbEtiquetasLoad = lazy(() => import("./loaders/VbEtiquetasLoad"));
 
@@ -17,14 +16,14 @@ const VbNewsDisplay = () => {
   const [news, setNews] = useState([]);
 
   const categorias = [
-    "teledeteccion",
-    "solucionesintegrales",
-    "riego",
-    "proteccionvegetal",
-    "nutricion",
-    "maquinaria",
-    "sensorizacion",
-    "bigdata",
+    "Teledetección",
+    "Soluciones Integrales",
+    "Riego",
+    "Protección Vegetal",
+    "Nutrición",
+    "Maquinaria",
+    "Sensorización",
+    "Big-Data",
   ];
 
   const dataLoad = async () => {

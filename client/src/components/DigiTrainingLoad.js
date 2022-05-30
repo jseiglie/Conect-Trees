@@ -9,10 +9,11 @@ const DigiTrainingLoad = () => {
   const [digitraining, setDigitraining] = useState([]);
   const [modified, setModified] = useState(false);
   
-  const loadDigitraining = () => {
-    axios.get("http://localhost:3001/digitalhub/digitraining").then((res) => {
-      setDigitraining(res.data);
-    });
+  const loadDigitraining = async () => {
+    const resp = await axios.get("http://localhost:3001/digitalhub/digitraining")
+      var temp = resp.data.sort((a, b) => a.id - b.id);
+      temp = temp.reverse();
+      setDigitraining(temp);
   };
   useEffect(() => {
     loadDigitraining();

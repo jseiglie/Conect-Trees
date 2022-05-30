@@ -5,6 +5,13 @@ const multer = require("multer");
 const { sign } = require("jsonwebtoken");
 const { validateToken } = require("../middleware/authmiddleware");
 
+
+const formater = (str) =>{
+  const strformater = str.replaceAll(' ', '-');
+  return strformater
+}
+
+
 const imgUploadPath = "../client/public/img_videoblog/noticias_img"; //CAMBIAR EN EL SERVIDOR
 
 const {
@@ -50,19 +57,32 @@ router.get("/noticias/ultimas", async (req, res) => {
   res.json(latest);
 });
 
+//DELETE noticia
+
+router.delete("/admin/noticias/:id", async (req, res) =>{
+  const id = req.params.id
+  await noticias_blog.destroy({
+    where: {
+      id: id,
+    },
+  })
+  res.json("Noticia eliminada");
+})
+
+
 ///ADD NOTICIAS
-router.post("/noticias", async (req, res) => {
+router.post("/admin/noticias", async (req, res) => {
   try {
     let payload = req.body;
-    await noticias.create("Noticia creada" + payload);
+    await noticias_blog.create(payload);
     res.json(payload);
   } catch (error) {
-    res.setDefaultEncoding(error);
+    res.json(error);
   }
 });
 
 //EDIT NOTICIAS
-router.put("/noticias/:id", async (req, res) => {
+router.put("/admin/noticias/:id", async (req, res) => {
   const id = req.params.id;
   const {
     id_categoria,
@@ -80,15 +100,16 @@ router.put("/noticias/:id", async (req, res) => {
     tipo_video,
     codigo_video,
     publicar,
+    destacada
   } = req.body;
-  await noticias.update(
+  await noticias_blog.update(
     {
       id_categoria: id_categoria,
       fecha: fecha,
       hora: hora,
       user: user,
       intro: intro,
-      seo: seo,
+      seo: formater(seo),
       descripcion: descripcion,
       ultima_modificacion: ultima_modificacion,
       user_modificacion: user_modificacion,
@@ -98,6 +119,7 @@ router.put("/noticias/:id", async (req, res) => {
       tipo_video: tipo_video,
       codigo_video: codigo_video,
       publicar: publicar,
+      destacada: destacada
     },
     {
       where: {
@@ -107,6 +129,17 @@ router.put("/noticias/:id", async (req, res) => {
   );
   res.json("Noticia actualizada");
 });
+
+
+///GET DESTACADA
+router.get("/noticias/destacada", async (req, res) =>{
+  const payload = await noticias_blog.findAll({
+    where: {
+      destacada: 1
+    }
+  })
+  res.send(payload)
+})
 
 ////NOTICIAS TELEDETECCION
 
@@ -205,22 +238,43 @@ router.post("/videos", async (req, res) => {
   }
 });
 
-//EDIT VIDEO
-router.put("/videos", async (req, res) => {
+//GET ONE VIDEO
+
+router.get("/admin/editnews/:id", async (req, res) =>{
   const id = req.params.id;
-  const { titulo, titulo_seo, tipo, codigo, publicar } = req.body;
-  await videos_blog.update(
+  const payload = await noticias_blog.findByPk(id)
+  res.json(payload)
+})
+
+//EDIT VIDEO
+router.put("/admin/fulledit/:id", async (req, res) => {
+  const id = req.params.id;
+  const { id_categoria, fecha, hora, user, titulo, intro, seo, descripcion, ultima_modificacion, 
+    user_modificacion, ruta_img, alt_img, video, tipo_video, codigo_video, visitas, publicar, destacada } = req.body;
+  await noticias_blog.update(
     {
+      id_categoria: parseInt(id_categoria),
       titulo: titulo,
-      titulo_seo: titulo_seo,
-      tipo: tipo,
-      codigo: codigo,
+      seo: formater(seo),
+      ultima_modificacion: ultima_modificacion,
+      user_modificacion: user_modificacion,
+      tipo_video: tipo_video,
+      codigo_video: codigo_video,
       publicar: publicar,
+      destacada: destacada
     },
     { where: { id: id } }
   );
   res.json("Noticia/Video actualizado correctamente");
 });
+
+
+// router.post("/admin/add", async (req, res) =>{
+//   const payload = req.body;
+//   await noticias_blog.create(payload)
+// })
+
+
 //get etiquetas
 router.get("/asigetiquetas/:id_noticia", async (req, res) => {
   const id_noticia = req.params.id_noticia;
@@ -238,8 +292,8 @@ router.get("/news/:id", async (req, res) => {
   res.json(news);
 });
 
-//EDIT noticia
-router.put("/noticias/edit/:id", async (req, res)=>{
+//EDIT noticia Publicar
+router.put("/admin/noticias/edit/:id", async (req, res)=>{
   const id = req.params.id
   const {publicar} = req.body;
   await noticias_blog.update(
@@ -249,7 +303,16 @@ router.put("/noticias/edit/:id", async (req, res)=>{
 res.json("Publicar actualizado")
 })
 
- 
+//EDIT noticia destacada 
+router.put("/noticias/destacada/:id", async (req, res)=>{
+  const id = req.params.id
+  const {destacada} = req.body;
+  await noticias_blog.update(
+    {destacada: destacada},
+    {where: {id:id}}
+  )
+res.json("Publicar actualizado")
+})
 
 
 //intentional delay on undefined

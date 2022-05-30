@@ -15,15 +15,13 @@ const VbTeledeteccion = () => {
       var temp = resp.data.sort((a, b) => a.id - b.id);
       temp = temp.reverse();
       temp = temp.slice(0, 5);
-       //console.log(temp)
       setTeledeteccion(temp);
-      //   console.log(temp);
     } catch (error) {
-     // console.log(error);
+      console.log(error);
     }
   };
   useEffect(() => {
-    setTimeout(load, 1000)
+    setTimeout(load, 1000);
     load();
   }, []);
 

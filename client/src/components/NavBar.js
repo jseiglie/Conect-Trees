@@ -18,7 +18,7 @@ export const Navbar = () => {
       </Link>
       <ul className="navbar">
         <li className="navItem navbarLink">
-          <Link to="#Nosotros">NOSOTROS</Link>
+          <Link to={"/nosotros"}>NOSOTROS</Link>
         </li>
         <li className="navItem navbarLink">
           <Link to={"/connectlovers"}>CONNECTLOVERS</Link>

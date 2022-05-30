@@ -343,19 +343,23 @@ router.post("/contacto", async (req, res) => {
   `;
 
   let transporter = nodemailer.createTransport({
-    host: "smtp.gmail.com",
-    port: 587,
+    sendMail: true,
+    host: "mail.connectrees.es",
+    port: 25,
     secure: false,
+    //host: SMTP_HOST,
     auth: {
-      user: "", // NECESITA USUARIO
-      pass: "", // NECESITA PASS
+      user: "info@conectrees.es", // NECESITA USUARIO
+      pass: "C0nn3c%%", // NECESITA PASS
     },
+    tls:{
+      rejectUnauthorized:false  // if on local
+    }
   });
 
   let mailOptions = {
-    from: "jseiglie@gmail.com", // quien envia el email
+    from: "info@connectrees.es", // quien envia el email
     to: req.body.payload.mail, //email destino
-    replyTo: "jseiglie@gmail.com",
     subject: "Nuevo contacto desde Digitalhub",
     html: htmlEmail,
   };

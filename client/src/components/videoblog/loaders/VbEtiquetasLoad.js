@@ -9,17 +9,15 @@ const VbEtiquetasLoad = (props) => {
     setTimeout(loadTags, 500)
     loadTags();
   }, []);
-
+  
   const loadTags = async () => {
     try {
       const resp = await axios.get(
         `http://localhost:3001/videoblog/asigetiquetas/${props.id}`
       );
       setTags(resp.data[0]);
-      // console.log(tags);
-      // console.log(`http://localhost:3001/videoblog/asigetiquetas/${props.id}`);
     } catch (error) {
-     // console.log(error);
+     console.log(error);
     }
   };
 

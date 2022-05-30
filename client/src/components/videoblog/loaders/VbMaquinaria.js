@@ -11,21 +11,17 @@ const VbMaquinaria = () => {
       const resp = await axios.get(
         "http://localhost:3001/videoblog/noticias/maquinaria"
       );
-
       var temp = resp.data.sort((a, b) => a.id - b.id);
       temp = temp.reverse();
       temp = temp.slice(0, 5);
-      //    console.log(temp);
       setMaquinaria(temp);
-      //    console.log(temp);
     } catch (error) {
-      //
-      //console.log(error);
+      console.log(error);
     }
   };
 
   useEffect(() => {
-    setTimeout(load, 500)
+    setTimeout(load, 500);
     load();
   }, []);
   const handleClick = (e) => {

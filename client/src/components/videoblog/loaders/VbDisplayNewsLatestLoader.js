@@ -20,10 +20,8 @@ const VbDisplayNewsLatestLoader = (props) => {
       temp = temp.reverse();
       temp = temp.slice(0, 4);
       setLatest(temp);
-      //console.log(`https://localhost:3001/videoblog/noticias/${props.log}`)
-      //console.log(latest)
     } catch (error) {
-      //console.log(error);
+      console.log(error);
       setError(true);
     }
   };

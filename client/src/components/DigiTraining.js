@@ -22,28 +22,7 @@ const DigiTrain = () => {
   useEffect(() => {
     loadDigitraining();
   }, []);
-
-  //Carga estática
-
-  // const digiTrainMedia = [
-  //   {
-  //     video: "-9zcMMXTcBU",
-  //     title: "Pedro Gallardo se conecta a #ConnecTreesDigHub",
-  //   },
-  //   {
-  //     video: "wDb-uS0MR44",
-  //     title: "Mejorar las decisiones para ser eficaces y ahorrar costes",
-  //   },
-  //   {
-  //     video: "BMNovHiCzKU",
-  //     title: "El Plan A de la #agricultura de alto valor es la #digitalización",
-  //   },
-  //   {
-  //     video: "F01qM6OU464",
-  //     title:
-  //       "El éxito de la digitalización necesita un ecosistema colaborativo",
-  //   },
-  // ];
+  
   const digiTrainMediaShow = () => {
     return (
       <>
