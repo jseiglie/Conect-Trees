@@ -4,7 +4,6 @@ import ReactPaginate from "react-paginate";
 import { useNavigate, useParams } from "react-router-dom";
 
 const ColabLoad = () => {
-  const urlAdmin = process.env.REACT_APP_digitalhub_admin;
   const url = process.env.REACT_APP_digitalhub;
   const navigate = useNavigate(); // eslint-disable-next-line
   const { id } = useParams();
@@ -16,7 +15,7 @@ const ColabLoad = () => {
 
 
   useEffect(() => {
-    loadColab();
+    loadColab();// eslint-disable-next-line
   }, [modified]);
 
   const loadColab = async () => {
@@ -48,11 +47,11 @@ const ColabLoad = () => {
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
     setOffset(selectedPage + 1);
-  };
+  }; 
 
   // LOAD NEXT PAGINATION PAGE
   useEffect(() => {
-    loadColab();
+    loadColab();// eslint-disable-next-line
   }, [offset]);
 //===================///PAGINATION==============
 

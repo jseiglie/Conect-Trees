@@ -8,7 +8,6 @@ import AdminHeader from "./AdminHeader";
 import { AuthContext } from "../helpers/AuthContext";
 
 const EditNews = () => {
-  const urlAdmin = process.env.REACT_APP_digitalhub_admin;
   const url = process.env.REACT_APP_digitalhub;
   let { id } = useParams();
   const navigate = useNavigate();
@@ -248,26 +247,30 @@ const EditNews = () => {
     <>
       <AdminHeader />
       <Formik
-        initialValues={{
-          categoria: "",
-          titulo: "",
-          intro: "",
-          titulo_seo: "",
-          contenido: "",
-          fuente: "",
-          fecha_modificacion: "",
-          user_modificacion: "",
-          ruta_img1: "",
-          alt_img1: "",
-          ruta_img2: "",
-          alt_img2: "",
-          ruta_img3: "",
-          alt_img3: "",
-          video: "",
-          codigo_video: "",
-          tipo_video: "",
-          publicar: "",
-        }}
+      enableReinitialize={true}
+        initialValues={
+          news
+        //   {
+        //   categoria: "",
+        //   titulo: "",
+        //   intro: "",
+        //   titulo_seo: "",
+        //   contenido: "",
+        //   fuente: "",
+        //   fecha_modificacion: "",
+        //   user_modificacion: "",
+        //   ruta_img1: "",
+        //   alt_img1: "",
+        //   ruta_img2: "",
+        //   alt_img2: "",
+        //   ruta_img3: "",
+        //   alt_img3: "",
+        //   video: "",
+        //   codigo_video: "",
+        //   tipo_video: "",
+        //   publicar: "",
+        // }
+      }
         onSubmit={(values, { setSubmitting }) => {
           axios.put(
             `${url}/addtonews/${news.id}`,
@@ -328,6 +331,7 @@ const EditNews = () => {
                       type="date"
                       placeholder="fecha de modificacion"
                       name="fecha_modificación"
+                      validate={validateFecha_modificacion}
                     />
                   </div>
 

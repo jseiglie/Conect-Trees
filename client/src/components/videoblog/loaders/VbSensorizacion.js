@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const VbSensorizacion = () => {
   const url = process.env.REACT_APP_videoblog;
-  const urlAdmin = process.env.REACT_APP_videoblog_admin;
   const navigate = useNavigate();
   const [sensorizacion, setSensorizacion] = useState([]);
 
@@ -22,7 +21,7 @@ const VbSensorizacion = () => {
 
   useEffect(() => {
     setTimeout(load, 500);
-    load();
+    load();// eslint-disable-next-line
   }, []);
 
   const handleClick = (e) => {

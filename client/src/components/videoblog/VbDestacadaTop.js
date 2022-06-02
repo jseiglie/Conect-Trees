@@ -7,7 +7,6 @@ const VbDestacadaTop = () => {
   const thumb = process.env.REACT_APP_thumb;
   const youtube = process.env.REACT_APP_youtube;
   const url = process.env.REACT_APP_videoblog;
-  const urlAdmin = process.env.REACT_APP_videoblog_admin;
   const [destacadaNews, setDestacadasNews] = useState([]);
   const categorias = [
     "Teledetección",
@@ -42,7 +41,7 @@ const VbDestacadaTop = () => {
 
   useEffect(() => {
     loadUltimas();
-    loadDestacadaNews();
+    loadDestacadaNews();// eslint-disable-next-line
   }, []);
 
   const display = () => {

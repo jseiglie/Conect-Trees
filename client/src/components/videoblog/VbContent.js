@@ -28,7 +28,7 @@ const VbContent = () => {
 
   useEffect(() => {
     setTimeout(categoriasLoad, 500);
-    categoriasLoad();
+    categoriasLoad();// eslint-disable-next-line
   }, []);
 
   const categoriasShow = () => {

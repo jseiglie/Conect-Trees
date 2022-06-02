@@ -29,7 +29,7 @@ const ConnecloversLoad = () => {
   }, []);
 
   useEffect(() => {
-    loadConnectlovers();
+    loadConnectlovers();// eslint-disable-next-line
   }, [modified]);
 
   const handleTrashClick = async (id) => {
@@ -54,7 +54,7 @@ const ConnecloversLoad = () => {
 
   // LOAD NEXT PAGINATION PAGE
   useEffect(() => {
-    loadConnectlovers();
+    loadConnectlovers();// eslint-disable-next-line
   }, [offset]);
 //===================///PAGINATION==============
 

@@ -7,7 +7,6 @@ import AdminFooter from "./AdminFooter";
 import AdminHeader from "./AdminHeader";
 
 const EditColab = () => {
-  const urlAdmin = process.env.REACT_APP_digitalhub_admin;
   const url = process.env.REACT_APP_digitalhub;
   const { authState } = useContext(AuthContext); 
 
@@ -128,13 +127,17 @@ const EditColab = () => {
     <div className="container-fluid">
       <AdminHeader/>
       <Formik
-        initialValues={{
-          nombre: "",
-          slug: "",
-          url: "",
-          info: "",
-          logo: "",
-        }}
+      enableReinitialize={true}
+        initialValues={
+          editColaborador
+        //   {
+        //   nombre: "",
+        //   slug: "",
+        //   url: "",
+        //   info: "",
+        //   logo: "",
+        // }
+      }
         onSubmit={handleSubmit}
       >
         {({ errors, touched, isValidating }) => (

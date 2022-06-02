@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const VbAdminLoader = () => {
   const url = process.env.REACT_APP_videoblog;
@@ -43,18 +43,18 @@ const VbAdminLoader = () => {
 
   //IF ERROR LOAD NEWS
   if (error) {
-    loadNews();
+    loadNews();// eslint-disable-next-line
     setError(false);
   }
 
   //LOAD NEWS
   useEffect(() => {
-    loadNews();
+    loadNews();// eslint-disable-next-line
   }, []);
 
   //LOADS CATEGORIA WHEN ALLNEWS LOADED
   useEffect(() => {
-    loadCategoria();
+    loadCategoria();// eslint-disable-next-line
   }, [allNews]);
 //======================PAGINATION==============
   //SETS SELECTED PAGINATION PAGE
@@ -65,7 +65,7 @@ const VbAdminLoader = () => {
 
   // LOAD NEXT PAGINATION PAGE
   useEffect(() => {
-    loadNews();
+    loadNews();// eslint-disable-next-line
   }, [offset]);
 //===================///PAGINATION==============
   //DELETE
@@ -103,7 +103,6 @@ const VbAdminLoader = () => {
     setDestacar(value);
     let payload;
     value ? (payload = { destacada: 0 }) : (payload = { destacada: 1 });
-    console.log(payload);
     try {
       await axios
         .put(`${url}/noticias/destacada/${e}`, payload, {
@@ -118,7 +117,7 @@ const VbAdminLoader = () => {
   };
 
   useEffect(() => {
-    loadNews();
+    loadNews();// eslint-disable-next-line
   }, [activeToggle, destacar]);
 
   const handleAddVbNews = () => {

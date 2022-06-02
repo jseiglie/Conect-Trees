@@ -5,10 +5,10 @@ import axios from "axios";
 const VbEtiquetasLoad = (props) => {
   const [tags, setTags] = useState([]);
   const url = process.env.REACT_APP_videoblog;
-  const urlAdmin = process.env.REACT_APP_videoblog_admin;
+  
   useEffect(() => {
     setTimeout(loadTags, 500)
-    loadTags();
+    loadTags();// eslint-disable-next-line
   }, []);
   
   const loadTags = async () => {
@@ -35,7 +35,4 @@ const VbEtiquetasLoad = (props) => {
     </div>
   );
 };
-
-VbEtiquetasLoad.propTypes = {};
-
 export default VbEtiquetasLoad;

@@ -14,18 +14,17 @@ const ConnecnewsLoad = () => {
   const [perPage] = useState(25);
   const [offset, setOffset] = useState(1);
 
-
   const loadConnecnews = async () => {
     const data = await axios.get(`${url}connecnews`);
     setConnecnews(data.data);
   };
 
   useEffect(() => {
-    loadConnecnews();
+    loadConnecnews(); // eslint-disable-next-line
   }, []);
 
   useEffect(() => {
-    loadConnecnews();
+    loadConnecnews(); // eslint-disable-next-line
   }, [modified]);
 
   const handleTrashClick = async (id) => {
@@ -42,7 +41,7 @@ const ConnecnewsLoad = () => {
     modified === true ? setModified(false) : setModified(true);
   };
 
-//======================PAGINATION==============
+  //======================PAGINATION==============
   //SETS SELECTED PAGINATION PAGE
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
@@ -51,25 +50,23 @@ const ConnecnewsLoad = () => {
 
   // LOAD NEXT PAGINATION PAGE
   useEffect(() => {
-    loadConnecnews();
+    loadConnecnews(); // eslint-disable-next-line
   }, [offset]);
-//===================///PAGINATION==============
-
-
+  //===================///PAGINATION==============
 
   return (
     <>
-       <ReactPaginate
-            previousLabel={"<<"}
-            nextLabel={">>"}
-            breakLabel={"..."}
-            breakClassName={"break_me"}
-            pageCount={pageCount}
-            onPageChange={handlePageClick}
-            containerClassName={"pagination"}
-            subContainerClassName={"pages pagination"}
-            activaClassName={"active"}
-          />
+      <ReactPaginate
+        previousLabel={"<<"}
+        nextLabel={">>"}
+        breakLabel={"..."}
+        breakClassName={"break_me"}
+        pageCount={pageCount}
+        onPageChange={handlePageClick}
+        containerClassName={"pagination"}
+        subContainerClassName={"pages pagination"}
+        activaClassName={"active"}
+      />
       {connecnews.map((item, i) => (
         <div className="row line" key={i}>
           <div className="col-sm-8">

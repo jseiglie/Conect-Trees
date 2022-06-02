@@ -21,10 +21,10 @@ const DigiTrainingLoad = () => {
     setDigitraining(temp);
   };
   useEffect(() => {
-    loadDigitraining();
+    loadDigitraining();// eslint-disable-next-line
   }, []);
   useEffect(() => {
-    loadDigitraining();
+    loadDigitraining();// eslint-disable-next-line
   }, [modified]);
 
   const handleTrashClick = async (id) => {
@@ -48,7 +48,7 @@ const DigiTrainingLoad = () => {
 
   // LOAD NEXT PAGINATION PAGE
   useEffect(() => {
-    loadDigitraining();
+    loadDigitraining();// eslint-disable-next-line
   }, [offset]);
 //===================///PAGINATION==============
 
@@ -93,5 +93,4 @@ const DigiTrainingLoad = () => {
     </>
   );
 };
-
 export default DigiTrainingLoad;

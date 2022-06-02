@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 
 const VbTeledeteccion = () => {
   const url = process.env.REACT_APP_videoblog;
-  const urlAdmin = process.env.REACT_APP_videoblog_admin;
   const navigate = useNavigate();
   const [teledeteccion, setTeledeteccion] = useState([]);
 
@@ -21,7 +20,7 @@ const VbTeledeteccion = () => {
   };
   useEffect(() => {
     setTimeout(load, 1000);
-    load();
+    load();// eslint-disable-next-line
   }, []);
 
   const handleClick = (e) => {

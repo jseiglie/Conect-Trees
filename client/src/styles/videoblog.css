@@ -416,3 +416,57 @@ cursor: pointer;
 color: wheat; 
 }
 
+.VbFormSearch{
+  display: flex;
+  padding: 2px;
+  border: 1px solid currentColor;
+  border-radius: 5px;
+  margin: 0 0 30px;
+}
+
+.VbInputSearch{
+  border: none;
+  background: transparent;
+  margin: 0;
+  padding: 7px 8px;
+  font-size: 14px;
+  color: inherit;
+  border: 1px solid transparent;
+  border-radius: inherit;
+}
+
+.VbSearchIcon{
+  align-self: center;
+  padding: 0.3rem;
+}
+
+.VbSearchResultBar{
+  width: 70%;
+ margin-left: auto; 
+ margin-right: auto;
+}
+
+.VbCloseSeatch{
+  float: right;
+  margin-top: -1rem;
+}
+
+.XCloseIconSearch:hover{
+  transform: scale(1, -1);
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;
+}
+
+.VbSearchLi{
+  font-weight: 500;
+}
+
+.VbSearchWrapper{
+  border: 1px solid #388f88;
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0px 5px 8px 0px #388f88;
+  margin-bottom: 2rem;
+}

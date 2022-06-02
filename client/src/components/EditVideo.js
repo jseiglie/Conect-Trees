@@ -8,7 +8,6 @@ import AdminHeader from "./AdminHeader";
 import AdminFooter from "./AdminFooter";
 
 const EditVideo = () => {
-  const urlAdmin = process.env.REACT_APP_digitalhub_admin;
   const url = process.env.REACT_APP_digitalhub;
   const navigate = useNavigate();
   const { authState } = useContext(AuthContext);
@@ -17,7 +16,7 @@ const EditVideo = () => {
 
   useEffect(() => {
     if (!authState) navigate("/admin");
-     // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   const handleClose = () => {
@@ -34,15 +33,13 @@ const EditVideo = () => {
   };
 
   const dataLoad = async () => {
-    const data = await axios.get(
-      `${url}/editvideo/${id}`
-    );
+    const data = await axios.get(`${url}/editvideo/${id}`);
     setVideo(data.data);
   };
 
   useEffect(() => {
     dataLoad();
-     // eslint-disable-next-line
+    // eslint-disable-next-line
   }, []);
 
   const validateTitulo = (value) => {
@@ -125,28 +122,28 @@ const EditVideo = () => {
           </div>
           <div className="col-lg-8">
             <Formik
-              initialValues={{
-                fecha: "",
-                hora: "",
-                titulo: "",
-                titulo_seo: "",
-                tipo: "",
-                codigo: "",
-                seccion: "",
-                visitas: 0,
-                publicar: "",
-              }}
+              enableReinitialize={true}
+              initialValues={
+                video
+                //   {
+                //   fecha: "",
+                //   hora: "",
+                //   titulo: "",
+                //   titulo_seo: "",
+                //   tipo: "",
+                //   codigo: "",
+                //   seccion: "",
+                //   visitas: 0,
+                //   publicar: "",
+                // }
+              }
               onSubmit={(values, { setSubmitting }) => {
-                axios.put(
-                  `${url}/editvideo/${video.id}`,
-                  values,
-                  {
-                    headers: {
-                      accessToken: localStorage.getItem("accessToken"),
-                    },
-                  }
-                );
-               alert("Noticia-video modificado correctamente");
+                axios.put(`${url}/editvideo/${video.id}`, values, {
+                  headers: {
+                    accessToken: localStorage.getItem("accessToken"),
+                  },
+                });
+                alert("Noticia-video modificado correctamente");
                 setSubmitting(false);
                 navigate("/admin/dashboard");
               }}

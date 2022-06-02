@@ -5,7 +5,6 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../helpers/AuthContext";
 
 const VbAdminAddNews = () => {
-  const url = process.env.REACT_APP_videoblog;
   const urlAdmin = process.env.REACT_APP_videoblog_admin;
   const { authState } = useContext(AuthContext);
   const navigate = useNavigate();

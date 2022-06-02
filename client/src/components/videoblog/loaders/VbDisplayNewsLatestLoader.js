@@ -4,10 +4,9 @@ import axios from "axios";
 
 const VbDisplayNewsLatestLoader = (props) => {
   const url = process.env.REACT_APP_videoblog;
-  const urlAdmin = process.env.REACT_APP_videoblog_admin;
   useEffect(() => {
     setTimeout(loadLatest, 500);
-    loadLatest();
+    loadLatest();// eslint-disable-next-line
   }, []);
   const [latest, setLatest] = useState([""]);
 
@@ -54,7 +53,4 @@ const VbDisplayNewsLatestLoader = (props) => {
     </>
   );
 };
-
-VbDisplayNewsLatestLoader.propTypes = {};
-
 export default VbDisplayNewsLatestLoader;

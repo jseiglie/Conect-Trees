@@ -67,13 +67,13 @@ const VbAdminEditNews = () => {
     }
     return error;
   };
-  const validateSeccion = (value) => {
-    let error;
-    if (!value) {
-      error = required;
-    }
-    return error;
-  };
+  // const validateSeccion = (value) => {
+  //   let error;
+  //   if (!value) {
+  //     error = required;
+  //   }
+  //   return error;
+  // };
   const validatePublicar = (value) => {
     let error;
     if (!value) {
@@ -111,17 +111,20 @@ const VbAdminEditNews = () => {
   return (
     <>
       <Formik
-        initialValues={{
-          id_categoria: "",
-          titulo: "",
-          seo: "",
-          ultima_modificacion: "",
-          user_modificacion: "",
-          tipo_video: "",
-          codigo_video: "",
-          publicar: "",
-          destacada: ""
-        }}
+      enableReinitialize={true}
+        initialValues={ news
+        //   {
+        //   id_categoria: "",
+        //   titulo: "", 
+        //   seo: "",
+        //   ultima_modificacion: "",
+        //   user_modificacion: "",
+        //   tipo_video: "",
+        //   codigo_video: "",
+        //   publicar: "",
+        //   destacada: ""
+        // }
+      }
         onSubmit={(values, { setSubmitting }) => {
           console.log(values);
           axios.put(`${urlAdmin}fulledit/${news.id}`, values, {

@@ -2,7 +2,7 @@ import React, { useState, useEffect, Suspense, lazy } from "react";
 import axios from "axios";
 import VbFooter from "./VbFooter";
 import VbNavbar from "./VbNavbar"
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 const VbEtiquetasLoad = lazy(() => import("./loaders/VbEtiquetasLoad"));
 
@@ -13,7 +13,6 @@ const VbDisplayNewsLatestLoader = lazy(() =>
 const VbNewsDisplay = () => {
   const url = process.env.REACT_APP_videoblog;
   let { id } = useParams();
-  const navigate = useNavigate();
   const [news, setNews] = useState([]);
 
   const categorias = [
