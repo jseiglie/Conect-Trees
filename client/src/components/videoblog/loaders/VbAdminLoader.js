@@ -4,6 +4,8 @@ import ReactPaginate from "react-paginate";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 const VbAdminLoader = () => {
+  const url = process.env.REACT_APP_videoblog;
+  const urlAdmin = process.env.REACT_APP_videoblog_admin;
   const navigate = useNavigate();
   const [allNews, setAllNews] = useState([]);
   const [error, setError] = useState([]);
@@ -17,7 +19,7 @@ const VbAdminLoader = () => {
   //FUNCTION TO LOAD ALLNEWS
   const loadNews = async () => {
     try {
-      const resp = await axios.get(`http://localhost:3001/videoblog/noticias`);
+      const resp = await axios.get(`${url}noticias`);
       var temp = resp.data.sort((a, b) => a.id - b.id);
       temp = temp.reverse();
       const slice = temp.slice(offset - 1, offset - 1 + perPage);
@@ -33,9 +35,7 @@ const VbAdminLoader = () => {
   //FUNC TO LOAD CATEGORIES
   const loadCategoria = async () => {
     try {
-      const resp2 = await axios.get(
-        "http://localhost:3001/videoblog/categorias"
-      );
+      const resp2 = await axios.get(`${url}categorias`);
       setCategorias(resp2.data);
       //console.log(categorias)
     } catch (error) {}
@@ -52,13 +52,11 @@ const VbAdminLoader = () => {
     loadNews();
   }, []);
 
-
   //LOADS CATEGORIA WHEN ALLNEWS LOADED
   useEffect(() => {
     loadCategoria();
   }, [allNews]);
-
-
+//======================PAGINATION==============
   //SETS SELECTED PAGINATION PAGE
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
@@ -69,18 +67,17 @@ const VbAdminLoader = () => {
   useEffect(() => {
     loadNews();
   }, [offset]);
-
-
-//DELETE
+//===================///PAGINATION==============
+  //DELETE
   const handleTrashClick = async (id) => {
-    await axios.delete(`http://localhost:3001/videoblog/admin/noticias/${id}`, {
+    await axios.delete(`${urlAdmin}/noticias/${id}`, {
       headers: {
         accessToken: localStorage.getItem("accessToken"),
       },
     });
     loadNews();
   };
-//PUBLICAR
+  //PUBLICAR
   const publicarActivate = async (e, publi) => {
     setActiveToggle(publi);
     let payload;
@@ -89,17 +86,13 @@ const VbAdminLoader = () => {
       : (payload = { publicar: "SI" });
     try {
       await axios
-        .put(
-          `http://localhost:3001/videoblog/admin/noticias/edit/${e}`,
-          payload,
-          {
-            headers: {
-              accessToken: localStorage.getItem("accessToken"),
-            },
-          }
-        )
+        .put(`${urlAdmin}/noticias/edit/${e}`, payload, {
+          headers: {
+            accessToken: localStorage.getItem("accessToken"),
+          },
+        })
         .then((e) => console.log(e));
-      console.log(`http://localhost:3001/videoblog/noticias/edit/${e}`);
+      // console.log(`${url}/noticias/edit/${e}`);
     } catch (error) {
       console.log(error);
     }
@@ -113,15 +106,11 @@ const VbAdminLoader = () => {
     console.log(payload);
     try {
       await axios
-        .put(
-          `http://localhost:3001/videoblog/noticias/destacada/${e}`,
-          payload,
-          {
-            headers: {
-              accessToken: localStorage.getItem("accessToken"),
-            },
-          }
-        )
+        .put(`${url}/noticias/destacada/${e}`, payload, {
+          headers: {
+            accessToken: localStorage.getItem("accessToken"),
+          },
+        })
         .then((e) => console.log(e));
     } catch (error) {
       console.log(error);
@@ -183,9 +172,9 @@ const VbAdminLoader = () => {
                 >
                   Destacada
                   {item.destacada ? (
-                    <i className="VbDestacadaIcon fa-solid fa-object-group" />
+                    <i className="VbDestacadaIcon fa-solid fa-object-group dashboard_icon" />
                   ) : (
-                    <i className="VbDestacadaIcon fa-solid fa-square-xmark"></i>
+                    <i className="VbDestacadaIcon fa-solid fa-square-xmark dashboard_icon"></i>
                   )}
                 </div>
               </div>
@@ -206,6 +195,7 @@ const VbAdminLoader = () => {
                 </div>
 
                 <div className="table_items col-3">
+                  {""}Publicar {""}
                   {item.publicar === "SI" ? (
                     <i
                       className="fa-solid fa-circle-check dashboard_icon"

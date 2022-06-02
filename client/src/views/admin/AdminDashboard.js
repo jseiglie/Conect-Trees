@@ -25,7 +25,7 @@ const AdminDashboard = () => {
   const handleclick = () => {
     if (showDigitalHub === true) {
       sessionStorage.setItem("active", "videoblog");
-      return setShowDigitalHub(false), setShowVideoBlog(true);
+      return (setShowDigitalHub(false), setShowVideoBlog(true))
     }
     if (showVideoBlog === true) {
       sessionStorage.setItem("active", "digitalhub");

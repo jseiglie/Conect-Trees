@@ -8,6 +8,8 @@ import AdminHeader from "./AdminHeader";
 import AdminFooter from "./AdminFooter";
 
 const EditVideo = () => {
+  const urlAdmin = process.env.REACT_APP_digitalhub_admin;
+  const url = process.env.REACT_APP_digitalhub;
   const navigate = useNavigate();
   const { authState } = useContext(AuthContext);
   const [video, setVideo] = useState([]);
@@ -33,7 +35,7 @@ const EditVideo = () => {
 
   const dataLoad = async () => {
     const data = await axios.get(
-      `http://localhost:3001/digitalhub/editvideo/${id}`
+      `${url}/editvideo/${id}`
     );
     setVideo(data.data);
   };
@@ -136,7 +138,7 @@ const EditVideo = () => {
               }}
               onSubmit={(values, { setSubmitting }) => {
                 axios.put(
-                  `http://localhost:3001/digitalhub/editvideo/${video.id}`,
+                  `${url}/editvideo/${video.id}`,
                   values,
                   {
                     headers: {
@@ -144,9 +146,7 @@ const EditVideo = () => {
                     },
                   }
                 );
-                //   .then(console.log("testing"));
-                // console.log(JSON.stringify(values, null, 2));
-                alert("Noticia-video modificado correctamente");
+               alert("Noticia-video modificado correctamente");
                 setSubmitting(false);
                 navigate("/admin/dashboard");
               }}

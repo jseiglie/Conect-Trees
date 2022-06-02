@@ -8,6 +8,8 @@ import AdminHeader from "./AdminHeader";
 import { AuthContext } from "../helpers/AuthContext";
 
 const EditNews = () => {
+  const urlAdmin = process.env.REACT_APP_digitalhub_admin;
+  const url = process.env.REACT_APP_digitalhub;
   let { id } = useParams();
   const navigate = useNavigate();
   const [news, setNews] = useState([]);
@@ -48,7 +50,7 @@ const EditNews = () => {
   };
   const dataLoad = async () => {
     const data = await axios.get(
-      `http://localhost:3001/digitalhub/connecnews/edit/${id}`
+      `${url}/connecnews/edit/${id}`
     );
     setNews(data.data);
   };
@@ -268,7 +270,7 @@ const EditNews = () => {
         }}
         onSubmit={(values, { setSubmitting }) => {
           axios.put(
-            `http://localhost:3001/digitalhub/addtonews/${news.id}`,
+            `${url}/addtonews/${news.id}`,
             values,
             {
               headers: {

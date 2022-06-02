@@ -4,11 +4,12 @@ import ReactTooltip from "react-tooltip";
 import * as bootstrap from "bootstrap";
 
 export const Nosotros = () => {
+  const urlAdmin = process.env.REACT_APP_digitalhub_admin;
+  const url = process.env.REACT_APP_digitalhub;
   const [colaboradores, setColaboradores] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:3001/digitalhub/colaboradores").then((res) => {
-      //console.log(res.data);
+    axios.get(`${url}colaboradores`).then((res) => {
       setColaboradores(res.data);
       ReactTooltip.rebuild();
     });
@@ -19,7 +20,7 @@ export const Nosotros = () => {
     const tooltipTriggerList = [].slice.call(
       document.querySelectorAll('[data-toggle="tooltip"]')
     );
-     // eslint-disable-next-line
+    // eslint-disable-next-line
     const tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
       return new bootstrap.Tooltip(tooltipTriggerEl);
     });
@@ -82,7 +83,6 @@ export const Nosotros = () => {
               </p>
               <br />
               <br />
-
               <p className="nosText2 ">
                 Somos una red de conocimiento para transferir la digitalización
                 a los cultivos de alto valor.

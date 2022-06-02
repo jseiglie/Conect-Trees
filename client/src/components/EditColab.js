@@ -7,8 +7,9 @@ import AdminFooter from "./AdminFooter";
 import AdminHeader from "./AdminHeader";
 
 const EditColab = () => {
-  const { authState } = useContext(AuthContext);
-  
+  const urlAdmin = process.env.REACT_APP_digitalhub_admin;
+  const url = process.env.REACT_APP_digitalhub;
+  const { authState } = useContext(AuthContext); 
 
   useEffect(() => {
     if (!authState) navigate("/admin");
@@ -30,7 +31,7 @@ const EditColab = () => {
 
   const dataLoad = async () => {
     const data = await axios.get(
-      `http://localhost:3001/digitalhub/colaboradores/edit/${id}`
+      `${url}/colaboradores/edit/${id}`
     );
     setEditColaborador(data.data);
   };
@@ -103,7 +104,7 @@ const EditColab = () => {
 
   const handleSubmit = (values, { setSubmitting }) => {
     axios.put(
-      `http://localhost:3001/digitalhub/colaboradores/edit/${editColaborador.id}`,
+      `${url}/colaboradores/edit/${editColaborador.id}`,
       values,
       {
         headers: {

@@ -12,6 +12,7 @@ const VbBigData = React.lazy(() => import("./loaders/VbBigData"));
 const VbSensorizacion = React.lazy(() => import("./loaders/VbSensorizacion"));
 
 const VbContent = () => {
+  const url = process.env.REACT_APP_videoblog;
   const [categorias, setCategorias] = useState([]);
   const [active, setActive] = useState(0);
 
@@ -19,12 +20,10 @@ const VbContent = () => {
     active === index ? className : "";
 
   const categoriasLoad = async () => {
-    await axios
-      .get("http://localhost:3001/videoblog/categorias")
-      .then((res) => {
-        setCategorias(res.data);
-        //console.log(categorias);
-      });
+    await axios.get(`${url}categorias`).then((res) => {
+      setCategorias(res.data);
+      //console.log(categorias);
+    });
   };
 
   useEffect(() => {
@@ -36,7 +35,7 @@ const VbContent = () => {
     return categorias.map((item) => (
       <li
         key={item.id}
-        className="VbNavigationLi navItem"
+        className="VbNavigationLi navbarLink rrss navItem VbnavbarLink"
         onClick={handleClick}
         value={item.id}
       >
@@ -56,7 +55,7 @@ const VbContent = () => {
         <div className="row">
           <ul className="VbNavigationUl navbar">
             <li
-              className="VbNavigationLi navItem"
+              className="VbNavigationLi navbarLink rrss navItem VbnavbarLink"
               onClick={handleClick}
               value={`${0}`}
             >

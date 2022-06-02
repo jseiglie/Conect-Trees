@@ -4,8 +4,10 @@ import Player from "../Player";
 
 const VbDestacadaTop = () => {
   const [ultimas, setUltimas] = useState([]);
-  const thumb = "https://img.youtube.com/vi/";
-  const youtube = "https://www.youtube.com/watch?v=";
+  const thumb = process.env.REACT_APP_thumb;
+  const youtube = process.env.REACT_APP_youtube;
+  const url = process.env.REACT_APP_videoblog;
+  const urlAdmin = process.env.REACT_APP_videoblog_admin;
   const [destacadaNews, setDestacadasNews] = useState([]);
   const categorias = [
     "Teledetección",
@@ -20,9 +22,7 @@ const VbDestacadaTop = () => {
 
   const loadUltimas = async () => {
     try {
-      const resp = await axios.get(
-        "http://localhost:3001/videoblog/noticias/ultimas"
-      );
+      const resp = await axios.get(`${url}noticias/ultimas`);
       var temp = resp.data.sort((a, b) => a.id - b.id);
       temp = temp.reverse();
       temp = temp.slice(0, 3);
@@ -33,9 +33,7 @@ const VbDestacadaTop = () => {
   };
 
   const loadDestacadaNews = async () => {
-    const resp = await axios.get(
-      "http://localhost:3001/videoblog/noticias/destacada"
-    );
+    const resp = await axios.get(`${url}noticias/destacada`);
     var temp = resp.data.sort((a, b) => a.id - b.id);
     temp = temp.reverse();
     temp = temp.slice(0, 1);

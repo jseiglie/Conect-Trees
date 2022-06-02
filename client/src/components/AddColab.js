@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../helpers/AuthContext";
 
 const AddColab = (props) => {
+  const urlAdmin = process.env.REACT_APP_digitalhub_admin;
+  const url = process.env.REACT_APP_digitalhub;
   const { authState } = useContext(AuthContext);
   const [modalShow, setModalShow] = useState(false);
   const [modified, setModified] = useState(false);
@@ -79,7 +81,7 @@ useEffect(()=>{
   const handleSubmit = async (values, { setSubmitting }) => {
     try {
       await axios.post(
-        "http://localhost:3001/digitalhub/colaboradores",
+        `${url}colaboradores`,
         values,
         {
           headers: {

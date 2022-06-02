@@ -6,6 +6,8 @@ import { useNavigate } from "react-router-dom";
 
 
 const LoginForm = () => {
+  const urlAdmin = process.env.REACT_APP_digitalhub_admin;
+  const url = process.env.REACT_APP_digitalhub;
   const [user, setUser] = useState("");
   const [password, setPassword] = useState("");
   const { authState, setAuthState} = useContext(AuthContext);
@@ -21,7 +23,8 @@ navigate= useNavigate();
     e.preventDefault();
     const data = { usuario: user, password: password };
 
-    axios.post("http://localhost:3001/digitalhub/login", data).then((res) => {
+    axios.post(
+      `${url}login`, data).then((res) => {
       //console.log(res);
       if (res.data.error) {
         alert( "Usuario y/o contraseña no validos" );

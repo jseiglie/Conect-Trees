@@ -4,7 +4,8 @@ import axios from "axios";
 
 const VbEtiquetasLoad = (props) => {
   const [tags, setTags] = useState([]);
-
+  const url = process.env.REACT_APP_videoblog;
+  const urlAdmin = process.env.REACT_APP_videoblog_admin;
   useEffect(() => {
     setTimeout(loadTags, 500)
     loadTags();
@@ -13,7 +14,7 @@ const VbEtiquetasLoad = (props) => {
   const loadTags = async () => {
     try {
       const resp = await axios.get(
-        `http://localhost:3001/videoblog/asigetiquetas/${props.id}`
+        `${url}/asigetiquetas/${props.id}`
       );
       setTags(resp.data[0]);
     } catch (error) {

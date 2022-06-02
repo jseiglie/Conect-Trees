@@ -76,13 +76,12 @@ const Digitalizate = () => {
   };
 
   return (
-    <>
+    <section id="digitalizate">
       <h2 className="section_name">Digitalizate</h2>
       <div className="container gx-0">
         <div className="row ">{surveyShow()}</div>
       </div>
-
-    </>
+    </section>
   );
 };
 

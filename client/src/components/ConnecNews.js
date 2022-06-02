@@ -51,12 +51,12 @@ const ConnecNews = () => {
     ));
   };
   return (
-    <>
+    <section id="connecNews">
       <h2 className="section_name">#ConnecNews</h2>
       <div className="container gx-0">
         <div className="row ">{datamap()}</div>
       </div>
-    </>
+    </section>
   );
 };
 

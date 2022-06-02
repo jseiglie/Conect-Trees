@@ -11,6 +11,7 @@ const VbDisplayNewsLatestLoader = lazy(() =>
 );
 
 const VbNewsDisplay = () => {
+  const url = process.env.REACT_APP_videoblog;
   let { id } = useParams();
   const navigate = useNavigate();
   const [news, setNews] = useState([]);
@@ -26,8 +27,19 @@ const VbNewsDisplay = () => {
     "Big-Data",
   ];
 
+  const cat_ = [
+    "teledeteccion",
+    "solucionesintegrales",
+    "riego",
+    "proteccionvegetal",
+    "nutricion",
+    "maquinaria",
+    "sensorizacion",
+    "bidgata",
+  ];
+
   const dataLoad = async () => {
-    const data = await axios.get(`http://localhost:3001/videoblog/news/${id}`);
+    const data = await axios.get(`${url}news/${id}`);
     setNews(data.data);
   };
 
@@ -112,7 +124,7 @@ const VbNewsDisplay = () => {
                           <i className="rrss-icon fab fa-linkedin-in"></i>
                         </a>
                         <a
-                          href="mailto:????@???.??"
+                          href="mailto:info@connectrees.es"
                           className="navItem navbarLink Vbrrss"
                         >
                           <i
@@ -140,7 +152,7 @@ const VbNewsDisplay = () => {
                   </div>
                 </div>
                 <VbDisplayNewsLatestLoader
-                  get={`${categoria}`}
+                  get={`${cat_[news.id_categoria-1]}`}
                   log={categoria}
                 />
               </Suspense>

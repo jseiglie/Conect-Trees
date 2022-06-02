@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import "../styles/ContactForm.css";
-import axios from "axios"
+import axios from "axios";
 
 const ContactForm = () => {
+  const urlAdmin = process.env.REACT_APP_digitalhub_admin;
+  const url = process.env.REACT_APP_digitalhub;
   const [name, setName] = useState("");
   const [surname, setSurname] = useState("");
   const [emporg, setEmporg] = useState("");
   const [mail, setMail] = useState("");
- // eslint-disable-next-line
+  // eslint-disable-next-line
   const regexp = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-
 
   const handleContactSend = async (e) => {
     e.preventDefault();
@@ -20,7 +21,7 @@ const ContactForm = () => {
       surname.length >= 3 &&
       emporg &&
       emporg.length >= 3 &&
-      mail && 
+      mail &&
       mail.match(regexp)
     ) {
       const payload = {
@@ -30,11 +31,8 @@ const ContactForm = () => {
         mail: mail,
       };
       try {
-        axios.post("http://localhost:3001/digitalhub/contacto", {payload})
-        
-      } catch (error) {
-        
-      } 
+        axios.post(`${url}contacto`, { payload });
+      } catch (error) {}
       console.log(payload);
     } else {
       return alert(
@@ -107,7 +105,9 @@ const ContactForm = () => {
                         id="mailInput"
                         name="mail"
                         type="text"
-                        onChange={(e) => {setMail(e.target.value)}}
+                        onChange={(e) => {
+                          setMail(e.target.value);
+                        }}
                         required
                       />
                     </div>

@@ -4,25 +4,24 @@ import "../styles/home.css";
 import Player from "./Player";
 
 const DigiTrain = () => {
+  const urlAdmin = process.env.REACT_APP_digitalhub_admin;
+  const url = process.env.REACT_APP_digitalhub;
   const thumb = "https://img.youtube.com/vi/";
   const youtube = "https://www.youtube.com/watch?v=";
   const [digiTrainMedia, setDigiTrainMedia] = useState([]);
 
   //Carga dinamica
-
   const loadDigitraining = async () => {
-    await axios
-      .get("http://localhost:3001/digitalhub/digitraining")
-      .then((res) => {
-        setDigiTrainMedia(res.data);
-        //console.log(res.data);
-      });
+    await axios.get(`${url}digitraining`).then((res) => {
+      setDigiTrainMedia(res.data);
+      //console.log(res.data);
+    });
   };
 
   useEffect(() => {
     loadDigitraining();
   }, []);
-  
+
   const digiTrainMediaShow = () => {
     return (
       <>
@@ -35,8 +34,12 @@ const DigiTrain = () => {
                     <h3>{item.titulo}</h3>
                   </span>
                   <Player
-                    url={youtube + item.codigo}
-                    light={thumb + item.codigo + "/maxresdefault.jpg"}
+                    url={process.env.REACT_APP_youtube + item.codigo}
+                    light={
+                      process.env.REACT_APP_thumb +
+                      item.codigo +
+                      "/maxresdefault.jpg"
+                    }
                   />
                 </div>
               </div>
@@ -48,7 +51,7 @@ const DigiTrain = () => {
   };
 
   return (
-    <section id="dt">
+    <section id="digitraining" className="pb-5">
       <div className="section_name text-center color-white connectLovers__title">
         <h2 className="section_name color-theme">#DigiTraining</h2>
       </div>

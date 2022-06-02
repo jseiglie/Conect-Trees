@@ -9,6 +9,8 @@ import MulterTest from "./multer.test";
 import usePlaceholder from "react-bootstrap/esm/usePlaceholder";
 
 const AddNews = () => {
+  const urlAdmin = process.env.REACT_APP_digitalhub_admin;
+  const url = process.env.REACT_APP_digitalhub;
   const { authState } = useContext(AuthContext);
   const [ruta_img1, setRuta_img1] = useState("");
   const [ruta_img2, setRuta_img2] = useState("");
@@ -222,10 +224,9 @@ const AddNews = () => {
     navigate("/admin/dashboard");
   };
 
-  
-  useEffect(()=>{
-    imgPreview()
-  },[ruta])
+  useEffect(() => {
+    imgPreview();
+  }, [ruta]);
   const imgPreview = () => {
     return ruta === "" ? (
       <span>Esperando carga de imagen</span>
@@ -249,8 +250,6 @@ const AddNews = () => {
       </div>
     );
   };
-
-
 
   return (
     <>
@@ -283,16 +282,11 @@ const AddNews = () => {
         }}
         onSubmit={(values, { setSubmitting }) => {
           axios
-            .post(
-              "http://localhost:3001/digitalhub/addtonews",
-              values,
-              values,
-              {
-                headers: {
-                  accessToken: localStorage.getItem("accessToken"),
-                },
-              }
-            )
+            .post(`${url}addtonews`, values, values, {
+              headers: {
+                accessToken: localStorage.getItem("accessToken"),
+              },
+            })
             .then((res) => {
               if (res.data.error) {
                 console.log(res.data.error);
@@ -307,7 +301,6 @@ const AddNews = () => {
       >
         {({ errors, touched, isValidating }) => (
           <div className="container">
-            
             <div className="row iconXPos">
               <span onClick={handleClose} className="iconX">
                 <i class="fas fa-xmark"></i>

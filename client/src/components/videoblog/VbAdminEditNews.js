@@ -5,6 +5,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../helpers/AuthContext";
 
 const VbAdminEditNews = () => {
+  const url = process.env.REACT_APP_videoblog;
+  const urlAdmin = process.env.REACT_APP_videoblog_admin;
   const { authState } = useContext(AuthContext);
   let { id } = useParams();
   const [news, setNews] = useState([]);
@@ -16,7 +18,7 @@ const VbAdminEditNews = () => {
   }, []);
 
   const loadNews = async () => {
-    const data = await axios.get(`http://localhost:3001/videoblog/news/${id}`);
+    const data = await axios.get(`${url}/news/${id}`);
     setNews(data.data);
   };
 
@@ -122,7 +124,7 @@ const VbAdminEditNews = () => {
         }}
         onSubmit={(values, { setSubmitting }) => {
           console.log(values);
-          axios.put(`http://localhost:3001/videoblog/admin/fulledit/${news.id} `, values, {
+          axios.put(`${urlAdmin}fulledit/${news.id}`, values, {
             headers: {
               accessToken: localStorage.getItem("accessToken"),
             },

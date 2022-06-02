@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import axios from "axios";
 
 const VbDisplayNewsLatestLoader = (props) => {
+  const url = process.env.REACT_APP_videoblog;
+  const urlAdmin = process.env.REACT_APP_videoblog_admin;
   useEffect(() => {
     setTimeout(loadLatest, 500);
     loadLatest();
@@ -14,14 +16,14 @@ const VbDisplayNewsLatestLoader = (props) => {
   const loadLatest = async () => {
     try {
       const resp = await axios.get(
-        `http://localhost:3001/videoblog/noticias/${props.get}`
+        `${url}noticias/${props.get}`
       );
-      var temp = resp.data.sort((a, b) => a.id - b.id);
+      var temp = await resp.data.sort(resp.data.id);
       temp = temp.reverse();
       temp = temp.slice(0, 4);
       setLatest(temp);
     } catch (error) {
-      console.log(error);
+     // console.log(error);
       setError(true);
     }
   };

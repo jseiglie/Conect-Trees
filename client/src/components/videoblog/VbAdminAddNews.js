@@ -5,6 +5,8 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../../helpers/AuthContext";
 
 const VbAdminAddNews = () => {
+  const url = process.env.REACT_APP_videoblog;
+  const urlAdmin = process.env.REACT_APP_videoblog_admin;
   const { authState } = useContext(AuthContext);
   const navigate = useNavigate();
   useEffect(() => {
@@ -87,8 +89,7 @@ const VbAdminAddNews = () => {
     navigate("/admin/dashboard");
   };
 
-
-  const validateCategoria = (value) =>{
+  const validateCategoria = (value) => {
     let error;
     if (!value) {
       error = required;
@@ -121,8 +122,8 @@ const VbAdminAddNews = () => {
           publicar: "",
         }}
         onSubmit={(values, { setSubmitting }) => {
-          console.log(values)
-          axios.post("http://localhost:3001/videoblog/admin/noticias", values, {
+          console.log(values);
+          axios.post(`${urlAdmin}noticias`, values, {
             headers: {
               accessToken: localStorage.getItem("accessToken"),
             },
@@ -183,7 +184,6 @@ const VbAdminAddNews = () => {
                     id="id_categoria"
                     className="form-control"
                     name="id_categoria"
-                    
                     as="select"
                     validate={validateCategoria}
                   >

@@ -3,15 +3,14 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const VbTeledeteccion = () => {
+  const url = process.env.REACT_APP_videoblog;
+  const urlAdmin = process.env.REACT_APP_videoblog_admin;
   const navigate = useNavigate();
   const [teledeteccion, setTeledeteccion] = useState([]);
 
   const load = async () => {
     try {
-      const resp = await axios.get(
-        "http://localhost:3001/videoblog/noticias/teledeteccion"
-      );
-
+      const resp = await axios.get(`${url}noticias/teledeteccion`);
       var temp = resp.data.sort((a, b) => a.id - b.id);
       temp = temp.reverse();
       temp = temp.slice(0, 5);
@@ -35,17 +34,16 @@ const VbTeledeteccion = () => {
         <div className="row j-center">
           {teledeteccion.map((item) => (
             <div className="col-lg-2" key={item.id}>
-              {/* {console.log(item)} */}
               <div className="card allCard">
                 <img src="" className="card-img-top" alt="" />
                 <div className="card-body">
                   <p className="VbCard_fecha">{item.fecha}</p>
-                  <h5 onClick={handleClick} id={item.id} className="text_clamp">
+                  <h5 onClick={handleClick} id={item.id} className="text_clamp VbNoticiaTitle">
                     {item.titulo}
                   </h5>
                 </div>
                 <div className="card-footer">
-                  <p>Teledeteccion</p>
+                  <p>Teledetección</p>
                 </div>
               </div>
             </div>

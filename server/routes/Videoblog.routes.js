@@ -45,13 +45,14 @@ router.get("/etiquetas", async (req, res) => {
 
 ////NOTICIAS
 router.get("/noticias", async (req, res) => {
-  const noticias = await noticias_blog.findAll();
+  const noticias = await noticias_blog.findAll({where:{publicar: "SI"}});
   res.json(noticias);
 });
 
 //ULTIMAS NOTICIAS
 router.get("/noticias/ultimas", async (req, res) => {
   const latest = await noticias_blog.findAll({ 
+    where:{publicar: "SI"},
     order: [["fecha", "DESC"]] 
   });
   res.json(latest);
@@ -131,11 +132,12 @@ router.put("/admin/noticias/:id", async (req, res) => {
 });
 
 
-///GET DESTACADA
+///GET DESTACADA 
 router.get("/noticias/destacada", async (req, res) =>{
   const payload = await noticias_blog.findAll({
     where: {
-      destacada: 1
+      destacada: 1,
+      publicar: "SI"
     }
   })
   res.send(payload)
@@ -147,6 +149,7 @@ router.get("/noticias/teledeteccion", async (req, res) => {
   const noticiastele = await noticias_blog.findAll({
     where: {
       id_categoria: 1,
+      publicar: "SI"
     },
   });
   res.json(noticiastele);
@@ -157,6 +160,7 @@ router.get("/noticias/solucionesintegrales", async (req, res) => {
   const noticiastele = await noticias_blog.findAll({
     where: {
       id_categoria: 2,
+      publicar: "SI"
     },
   });
   res.json(noticiastele);
@@ -166,6 +170,7 @@ router.get("/noticias/riego", async (req, res) => {
   const noticiastele = await noticias_blog.findAll({
     where: {
       id_categoria: 3,
+      publicar: "SI"
     },
   });
   res.json(noticiastele);
@@ -175,6 +180,7 @@ router.get("/noticias/proteccionvegetal", async (req, res) => {
   const noticiastele = await noticias_blog.findAll({
     where: {
       id_categoria: 4,
+      publicar: "SI"
     },
   });
   res.json(noticiastele);
@@ -184,6 +190,7 @@ router.get("/noticias/nutricion", async (req, res) => {
   const noticiastele = await noticias_blog.findAll({
     where: {
       id_categoria: 5,
+      publicar: "SI"
     },
   });
   res.json(noticiastele);
@@ -193,6 +200,7 @@ router.get("/noticias/maquinaria", async (req, res) => {
   const noticiastele = await noticias_blog.findAll({
     where: {
       id_categoria: 6,
+      publicar: "SI"
     },
   });
   res.json(noticiastele);
@@ -202,6 +210,7 @@ router.get("/noticias/sensorizacion", async (req, res) => {
   const noticiastele = await noticias_blog.findAll({
     where: {
       id_categoria: 7,
+      publicar: "SI"
     },
   });
   res.json(noticiastele);
@@ -211,6 +220,7 @@ router.get("/noticias/bigdata", async (req, res) => {
   const noticiastele = await noticias_blog.findAll({
     where: {
       id_categoria: 8,
+      publicar: "SI"
     },
   });
   res.json(noticiastele);

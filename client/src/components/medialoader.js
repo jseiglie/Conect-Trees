@@ -5,9 +5,6 @@ import "../styles/MediaLoader.css";
 import YoutubeEmbed from "./YoutubeEmbed.component";
 
 const Medialoader = (props) => {
-  
- 
-
 
   return (
     <div className="row mx-auto justify-content-center">
@@ -19,7 +16,6 @@ const Medialoader = (props) => {
               <span className="mediaLoader__title"> {props.title}</span>
               <div className="">
                   <div className="asdas" style={{background:'https://img.youtube.com/vi/YppmKjBSAe0/maxresdefault.jpg'}}></div>
-                  
                   
               {/* <YoutubeEmbed embedId={props.videoURL}/> */}
               </div>

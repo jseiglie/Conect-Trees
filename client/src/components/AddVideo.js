@@ -8,6 +8,8 @@ import AdminHeader from "./AdminHeader";
 import AdminFooter from "./AdminFooter";
 
 const AddVideo = () => {
+  const urlAdmin = process.env.REACT_APP_digitalhub_admin;
+  const url = process.env.REACT_APP_digitalhub;
   const navigate = useNavigate();
   const { authState } = useContext(AuthContext);
 
@@ -100,7 +102,7 @@ const AddVideo = () => {
           publicar: "",
         }}
         onSubmit={(values, { setSubmitting }) => {
-          axios.post("http://localhost:3001/digitalhub/addtovideo", values, {
+          axios.post(`${url}addtovideo`, values, {
             headers: {
               accessToken: localStorage.getItem("accessToken"),
             },

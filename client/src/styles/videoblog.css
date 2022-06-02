@@ -410,3 +410,9 @@ li > a {
 .VbCategoriaTop{
   background-color: aliceblue;
 }
+
+.VbNoticiaTitle:hover{
+cursor: pointer;
+color: wheat; 
+}
+
