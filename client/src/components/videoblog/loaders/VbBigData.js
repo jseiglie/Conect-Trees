@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const VbBigData = () => {
   const url = process.env.REACT_APP_videoblog;
   const navigate = useNavigate();
+  const thumb = "https://img.youtube.com/vi/";
+  const youtube = "https://www.youtube.com/watch?v=";
+
 
   const [bigData, setBigData] = useState([]);
   const load = async () => {
@@ -19,29 +22,48 @@ const VbBigData = () => {
     }
   };
 
+  const updateView = async (value) => {
+    try {
+      await axios.put(`${url}noticias/count/${value}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     setTimeout(load, 500);
-    load();// eslint-disable-next-line
+    load(); // eslint-disable-next-line
   }, []);
+
   const handleClick = (e) => {
-    navigate(`/videoblog/news/${e.target.id}`);
+    updateView(e.target.id);
+    console.log(e.target.value)
+    // <Link to={`${youtube+ e.target.value}`}/>
+    console.log(`${youtube+ e.target.value}`)
+    // navigate(`/videoblog/news/${e.target.id}`);
   };
   return (
     <>
       <div className="container">
         <div className="row j-center">
           {bigData.map((item) => (
-            <div className="col-lg-2" key={item.id}>
+            <div className="col-lg-4" key={item.id}>
               <div className="card allCard">
-                <img src="" className="card-img-top" alt="" />
+                <div className="card_header">
+              <p className="m-0">{item.fecha}</p> <p className="m-0">Big Data</p>
+              </div>
+                <img src={`${thumb + item.codigo_video}/maxresdefault.jpg`} className="card-img-top" alt="" />
                 <div className="card-body">
-                  <p className="VbCard_fecha">{item.fecha}</p>
-                  <h4 onClick={handleClick} id={item.id} className="text_clamp VbNoticiaTitle">
+                  
+                  
+                  <h4
+                    onClick={handleClick}
+                    id={item.id}
+                    value={item.codigo_video}
+                    className="text_clamp VbNoticiaTitle"
+                  >
                     {item.titulo}
                   </h4>
-                </div>
-                <div className="card-footer">
-                  <p>Big Data</p>
                 </div>
               </div>
             </div>

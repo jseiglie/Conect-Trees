@@ -4,7 +4,6 @@ import "../styles/home.css";
 import Player from "./Player";
 
 const DigiTrain = () => {
-  const urlAdmin = process.env.REACT_APP_digitalhub_admin;
   const url = process.env.REACT_APP_digitalhub;
   const thumb = "https://img.youtube.com/vi/";
   const youtube = "https://www.youtube.com/watch?v=";

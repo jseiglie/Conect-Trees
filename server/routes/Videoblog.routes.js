@@ -1,5 +1,5 @@
 const express = require("express");
-const Sequelize = require("sequelize")
+const Sequelize = require("sequelize");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const multer = require("multer");
@@ -128,6 +128,17 @@ router.put("/admin/noticias/:id", async (req, res) => {
     }
   );
   res.json("Noticia actualizada");
+});
+
+//UPDATE COUNTER
+
+router.put("/noticias/count/:id", async (req, res) => {
+  const id = req.params.id;
+  await noticias_blog.update(
+    { visitas: sequelize.literal("visitas + 1") },
+    { where: { id: id } }
+  );
+  res.json("Añadida visita");
 });
 
 ///GET DESTACADA
@@ -334,11 +345,11 @@ router.put("/noticias/destacada/:id", async (req, res) => {
 
 router.get("/noticias/:q", async (req, res) => {
   const q = req.params.q;
-  console.log(`'%${q}'`)
+  console.log(`'%${q}'`);
   const resp = await noticias_blog.findAll({
-    where:{ titulo: {[Op.like]: `%${q}%`}}
+    where: { titulo: { [Op.like]: `%${q}%` } },
   });
-  res.json(resp)
+  res.json(resp);
 });
 
 //intentional delay on undefined
@@ -350,4 +361,4 @@ router.get("/noticias/undefined", async (req, res) => {
   return delay;
 });
 
-module.exports = router; 
+module.exports = router;

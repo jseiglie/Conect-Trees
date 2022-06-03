@@ -11,15 +11,13 @@ export const VbNavbar = () => {
   const [searchResult, setSearchResult] = useState([]);
 
   useEffect(() => {
-    loadNews();
-    console.log(data);// eslint-disable-next-line
+    loadNews(); // eslint-disable-next-line
   }, []);
 
   //FUNCTION TO LOAD ALLNEWS
   const loadNews = async () => {
     try {
       const resp = await axios.get(`${url}noticias`);
-      console.log(resp.data);
       setData(resp.data);
     } catch (error) {
       console.log(error);
@@ -30,7 +28,6 @@ export const VbNavbar = () => {
 
   const search = async (e) => {
     e.preventDefault();
-    //console.log(q)
     try {
       let resp;
       if (q.length > 1) {
@@ -40,34 +37,48 @@ export const VbNavbar = () => {
       } else {
         alert("Debe introducir un valor para buscar");
       }
-      //console.log(resp)
     } catch (error) {
-      console.log(error)
-      //console.log(error)
+      console.log(error);
     }
   };
 
   useEffect(() => {
-    displaySearch();// eslint-disable-next-line
+    displaySearch(); // eslint-disable-next-line
   }, [searchResult]);
 
+  const updateView = async (value) => {
+    try {
+      await axios.put(`${url}noticias/count/${value}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const handleClickSearchItem = (e) => {
+    updateView(e.target.id);
+  };
+
   const displaySearch = () => {
-    console.log(searchResult);
     return searchResult.length > 0
       ? searchResult.map((item) => (
-          <ul>
+          <ul className="dhNavBar">
             <Link to={`/videoblog/news/${item.id}`}>
-              <li className="navItem Vbrrss VbSearchLi">{item.titulo}</li>
+              <li
+                onClick={(e) => handleClickSearchItem}
+                className="navItem Vbrrss VbSearchLi"
+              >
+                {item.titulo}
+              </li>
             </Link>
           </ul>
         ))
       : "No data";
   };
 
-const handleCloseSearch = () =>{
-setVisible(false);
-setQ("")
-}
+  const handleCloseSearch = () => {
+    setVisible(false);
+    setQ("");
+  };
 
   return (
     <>
@@ -158,7 +169,10 @@ setQ("")
         <div className="row VbSearchResultBar ">
           <div className="container VbSearchWrapper">
             <span className="iconX VbCloseSeatch">
-              <i onClick={handleCloseSearch} className=" XCloseIconSearch fa-solid fa-xmark"></i>
+              <i
+                onClick={handleCloseSearch}
+                className=" XCloseIconSearch fa-solid fa-xmark"
+              ></i>
             </span>
             {displaySearch()}
           </div>

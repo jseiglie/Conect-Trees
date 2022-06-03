@@ -16,7 +16,7 @@ export const Navbar = () => {
             ></img>
           </span>
         </Link>
-        <ul className="navbar">
+        <ul className="navbar dhNavBar">
           <li className="navItem navbarLink">
             <HashLink to="#Nosotros">NOSOTROS</HashLink>
           </li>

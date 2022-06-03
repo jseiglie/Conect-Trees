@@ -1,6 +1,10 @@
+.dhNavBar{
+  margin: 0;
+  padding: 0;
+}
+
 .navLogo {
   width: 15rem;
-  margin-left: 2rem;
   height: auto;
 }
 
@@ -12,7 +16,7 @@
 
 .navItem {
   list-style-type: none;
-  margin-right: 3rem;
+  margin-right: 1rem;
   justify-content: space-between;
 }
 

@@ -18,11 +18,21 @@ const VbRiego = () => {
     }
   };
 
+  const updateView = async (value) => {
+    try {
+      await axios.put(`${url}noticias/count/${value}`);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     setTimeout(load, 500);
-    load();// eslint-disable-next-line
+    load(); // eslint-disable-next-line
   }, []);
+
   const handleClick = (e) => {
+    updateView(e.target.id);
     navigate(`/videoblog/news/${e.target.id}`);
   };
   return (
@@ -35,7 +45,11 @@ const VbRiego = () => {
                 <img src="" className="card-img-top" alt="" />
                 <div className="card-body">
                   <p className="VbCard_fecha">{item.fecha}</p>
-                  <h5 onClick={handleClick} id={item.id} className="text_clamp VbNoticiaTitle">
+                  <h5
+                    onClick={handleClick}
+                    id={item.id}
+                    className="text_clamp VbNoticiaTitle"
+                  >
                     {item.titulo}
                   </h5>
                 </div>
