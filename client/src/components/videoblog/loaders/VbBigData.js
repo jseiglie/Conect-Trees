@@ -55,7 +55,7 @@ const VbBigData = () => {
                 />
                 <div className="card-body">
                   <a
-                    className="externalLink"
+                    className="externalLink VbExternal"
                     href={`${youtube + item.codigo_video}`}
                     target="_blank"
                     rel="noreferrer"

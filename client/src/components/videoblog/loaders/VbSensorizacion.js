@@ -46,7 +46,7 @@ const VbSensorizacion = () => {
                 <div className="card-body">
                   <p className="VbCard_fecha">{item.fecha}</p>
                   <a
-                    className="externalLink"
+                    className="externalLink VbExternal"
                     href={`${youtube + item.codigo_video}`}
                     target="_blank"
                     rel="noreferrer"

@@ -52,11 +52,12 @@ const ContactForm = () => {
                   <div className="row from__input__wrapper ">
                     <div className="col-3">
                       <i className="fa fa-user fontAwesome__Position " />
-                      Nombre
+                      <label htmlFor="name">Nombre</label>
                     </div>
                     <div className="col-11">
                       <input
                         className="form-control form__input"
+                        id="name"
                         name="name"
                         type="text"
                         onChange={(e) => setName(e.target.value)}
@@ -67,11 +68,12 @@ const ContactForm = () => {
                   <div className="row from__input__wrapper">
                     <div className="col-3">
                       <i className="fa fa-user fontAwesome__Position " />
-                      Apellido
+                      <label htmlFor="surname">Apellido</label>
                     </div>
                     <div className="col-11">
                       <input
                         className="form-control form__input"
+                        id="surname"
                         name="surname"
                         type="text"
                         onChange={(e) => setSurname(e.target.value)}
@@ -82,7 +84,7 @@ const ContactForm = () => {
                   <div className="row from__input__wrapper">
                     <div className="col-3">
                       <i className="fa fa-building fontAwesome__Position " />
-                      Empresa
+                      <label htmlFor="emporg">Empresa</label>
                     </div>
                     <div className="col-11">
                       <input
@@ -97,7 +99,7 @@ const ContactForm = () => {
                   <div className="row from__input__wrapper">
                     <div className="col-3">
                       <i className="fa fa-envelope fontAwesome__Position" />
-                      Correo
+                      <label htmlFor="mail">Correo</label>
                     </div>
                     <div className="col-11">
                       <input
