@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 const VbSoluciones = () => {
+  const youtube = process.env.REACT_APP_youtube;
   const url = process.env.REACT_APP_videoblog;
-  const navigate = useNavigate();
   const [soluciones, setSoluciones] = useState([]);
 
   const load = async () => {
@@ -35,7 +34,6 @@ const VbSoluciones = () => {
 
   const handleClick = (e) => {
     updateView(e.target.id);
-    navigate(`/videoblog/news/${e.target.id}`);
   };
 
   return (
@@ -48,13 +46,20 @@ const VbSoluciones = () => {
                 <img src="" className="card-img-top" alt="" />
                 <div className="card-body">
                   <p className="VbCard_fecha">{item.fecha}</p>
-                  <h5
-                    onClick={handleClick}
-                    id={item.id}
-                    className="text_clamp VbNoticiaTitle"
+                  <a
+                    className="externalLink"
+                    href={`${youtube + item.codigo_video}`}
+                    target="_blank"
+                    rel="noreferrer"
                   >
-                    {item.titulo}
-                  </h5>
+                    <h5
+                      onClick={handleClick}
+                      id={item.id}
+                      className="text_clamp VbNoticiaTitle"
+                    >
+                      {item.titulo}
+                    </h5>
+                  </a>
                 </div>
                 <div className="card-footer">
                   <p>Soluciones</p>

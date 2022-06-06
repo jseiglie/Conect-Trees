@@ -1,10 +1,9 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 
 const VbTeledeteccion = () => {
   const url = process.env.REACT_APP_videoblog;
-  const navigate = useNavigate();
+  const youtube = process.env.REACT_APP_youtube;
   const [teledeteccion, setTeledeteccion] = useState([]);
 
   const load = async () => {
@@ -33,7 +32,6 @@ const VbTeledeteccion = () => {
 
   const handleClick = (e) => {
     updateView(e.target.id);
-    navigate(`/videoblog/news/${e.target.id}`);
   };
 
   return (
@@ -46,13 +44,21 @@ const VbTeledeteccion = () => {
                 <img src="" className="card-img-top" alt="" />
                 <div className="card-body">
                   <p className="VbCard_fecha">{item.fecha}</p>
-                  <h5
-                    onClick={handleClick}
-                    id={item.id}
-                    className="text_clamp VbNoticiaTitle"
+                  <a
+                    className="externalLink"
+                    href={`${youtube + item.codigo_video}`}
+                    target="_blank"
+                    rel="noreferrer"
                   >
-                    {item.titulo}
-                  </h5>
+                    <h5
+                      onClick={handleClick}
+                      id={item.id}
+                      value={item.codigo_video}
+                      className="text_clamp VbNoticiaTitle"
+                    >
+                      {item.titulo}
+                    </h5>
+                  </a>
                 </div>
                 <div className="card-footer">
                   <p>Teledetección</p>
