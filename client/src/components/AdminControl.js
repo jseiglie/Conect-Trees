@@ -12,13 +12,9 @@ const AdminControl = () => {
   };
 
   return (
-    // <div className="container-fluid logout_container">
-      //<div className="logout_container">
         <button className="btn admin_logout" onClick={handleLogOut}>
           Salir
         </button>
-      //</div>
-    //</div> 
   );
 };
 

@@ -38,43 +38,41 @@ const VbMaquinaria = () => {
   };
 
   return (
-    <>
-      <div className="container">
-        <div className="row j-center">
-          {maquinaria.map((item) => (
-            <div className="col-lg-4" key={item.id}>
-              <div className="card allCard">
-                <div className="card_header">
-                  <p className="m-0">{item.fecha}</p>{" "}
-                  <p className="m-0">Maquinaria</p>
-                </div>
-                <img
-                  src={`${thumb + item.codigo_video}/maxresdefault.jpg`}
-                  className="card-img-top"
-                  alt={item.titulo}
-                />
-                <div className="card-body">
-                  <a
-                    className="externalLink VbExternal"
-                    href={`${youtube + item.codigo_video}`}
-                    target="_blank"
-                    rel="noreferrer"
+    <div className="container">
+      <div className="row j-center">
+        {maquinaria.map((item) => (
+          <div className="col-lg-4" key={item.id}>
+            <div className="card allCard">
+              <div className="card_header">
+                <p className="m-0">{item.fecha}</p>{" "}
+                <p className="m-0">Maquinaria</p>
+              </div>
+              <img
+                src={`${thumb + item.codigo_video}/maxresdefault.jpg`}
+                className="card-img-top"
+                alt={item.titulo}
+              />
+              <div className="card-body">
+                <a
+                  className="externalLink VbExternal"
+                  href={`${youtube + item.codigo_video}`}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <h5
+                    onClick={handleClick}
+                    id={item.id}
+                    className="text_clamp VbNoticiaTitle"
                   >
-                    <h5
-                      onClick={handleClick}
-                      id={item.id}
-                      className="text_clamp VbNoticiaTitle"
-                    >
-                      {item.titulo}
-                    </h5>
-                  </a>
-                </div>
+                    {item.titulo}
+                  </h5>
+                </a>
               </div>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
-    </>
+    </div>
   );
 };
 

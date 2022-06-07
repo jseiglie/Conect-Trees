@@ -36,8 +36,7 @@ const VbTeledeteccion = () => {
   };
 
   return (
-    <>
-      <div className="container">
+ <div className="container">
         <div className="row j-center">
           {teledeteccion.map((item) => (
             <div className="col-lg-4" key={item.id}>
@@ -72,8 +71,7 @@ const VbTeledeteccion = () => {
           ))}
         </div>
       </div>
-    </>
-  );
+   );
 };
 
 export default VbTeledeteccion;

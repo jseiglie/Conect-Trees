@@ -33,8 +33,7 @@ const VbDisplayNewsLatestLoader = (props) => {
   }
 
   return (
-    <>
-      <div className="NewsDisplay_Tags"></div>
+    <div className="NewsDisplay_Tags">
       <h4>Noticias recientes</h4>
       <div className="NewsDisplay_Destacados">
         {latest.map((item, i) => (
@@ -57,7 +56,7 @@ const VbDisplayNewsLatestLoader = (props) => {
         ))}
         {/* {console.log(latest)} */}
       </div>
-    </>
+    </div>
   );
 };
 export default VbDisplayNewsLatestLoader;

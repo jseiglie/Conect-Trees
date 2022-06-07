@@ -6,7 +6,6 @@ const Footer = () => {
   const year = today.getUTCFullYear();
 
   return (
-    
     <footer className="footer">
       <div className="footerWrap">
         <div className="row">
@@ -14,7 +13,7 @@ const Footer = () => {
             className="imgFooter mx-auto"
             src={"./img/connect2_1.png"}
             alt="ConnectTrees Digital Hub"
-          ></img> 
+          ></img>
         </div>
         <div className="row">
           <span className="footerText color-white">
