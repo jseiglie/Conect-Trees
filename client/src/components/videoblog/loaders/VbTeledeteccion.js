@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 const VbTeledeteccion = () => {
   const url = process.env.REACT_APP_videoblog;
+  const thumb = process.env.REACT_APP_thumb;
   const youtube = process.env.REACT_APP_youtube;
   const [teledeteccion, setTeledeteccion] = useState([]);
 
@@ -11,7 +12,7 @@ const VbTeledeteccion = () => {
       const resp = await axios.get(`${url}noticias/teledeteccion`);
       var temp = resp.data.sort((a, b) => a.id - b.id);
       temp = temp.reverse();
-      temp = temp.slice(0, 5);
+      temp = temp.slice(0, 3);
       setTeledeteccion(temp);
     } catch (error) {
       console.log(error);
@@ -39,11 +40,18 @@ const VbTeledeteccion = () => {
       <div className="container">
         <div className="row j-center">
           {teledeteccion.map((item) => (
-            <div className="col-lg-2" key={item.id}>
+            <div className="col-lg-4" key={item.id}>
               <div className="card allCard">
-                <img src="" className="card-img-top" alt="" />
+                <div className="card_header">
+                  <p className="m-0">{item.fecha}</p>{" "}
+                  <p className="m-0">Teledetección</p>
+                </div>
+                <img
+                  src={`${thumb + item.codigo_video}/maxresdefault.jpg`}
+                  className="card-img-top"
+                  alt={item.titulo}
+                />
                 <div className="card-body">
-                  <p className="VbCard_fecha">{item.fecha}</p>
                   <a
                     className="externalLink VbExternal"
                     href={`${youtube + item.codigo_video}`}
@@ -53,15 +61,11 @@ const VbTeledeteccion = () => {
                     <h5
                       onClick={handleClick}
                       id={item.id}
-                      value={item.codigo_video}
                       className="text_clamp VbNoticiaTitle"
                     >
                       {item.titulo}
                     </h5>
                   </a>
-                </div>
-                <div className="card-footer">
-                  <p>Teledetección</p>
                 </div>
               </div>
             </div>

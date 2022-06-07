@@ -41,19 +41,26 @@ const VbDestacadaTop = () => {
 
   useEffect(() => {
     loadUltimas();
-    loadDestacadaNews();// eslint-disable-next-line
+    loadDestacadaNews(); // eslint-disable-next-line
   }, []);
 
   const display = () => {
     return ultimas.map((item) => (
       <div className="card Vblatest-card" key={item.id}>
-        <div className="card-body Vblatest-card-body">
-          <p className="VbFechaDestacadaTop mb-0">{item.fecha}</p>
-          <p className="VbDestacadaMasNuevoText mb-0">{item.titulo}</p>
-          <p className="VbDestacadaMasNuevoText mb-0 VbCategoriaTop">
-            {categorias[item.id_categoria - 1]}
-          </p>
-        </div>
+        <a
+          className="VbExternal externalLink"
+          href={`${youtube + item.codigo_video}`}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <div className="card-body Vblatest-card-body">
+            <p className="VbFechaDestacadaTop mb-0">{item.fecha}</p>
+            <p className="VbDestacadaMasNuevoText mb-0">{item.titulo}</p>
+            <p className="VbDestacadaMasNuevoText mb-0 VbCategoriaTop">
+              {categorias[item.id_categoria - 1]}
+            </p>
+          </div>
+        </a>
       </div>
     ));
   };

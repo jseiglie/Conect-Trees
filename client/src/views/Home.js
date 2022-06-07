@@ -10,17 +10,9 @@ import Contacto from "../components/Contacto";
 import ConnecNews from "../components/ConnecNews";
 import DigiTraining from "../components/DigiTraining";
 
-
 const Home = () => {
-//const [cookie, setCookie] = useCookies([])
-useEffect(()=>{
-
-
-})
-
-
-
-
+  //const [cookie, setCookie] = useCookies([])
+  useEffect(() => {});
 
   return (
     <>

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const VbSoluciones = () => {
+  const thumb = process.env.REACT_APP_thumb;
   const youtube = process.env.REACT_APP_youtube;
   const url = process.env.REACT_APP_videoblog;
   const [soluciones, setSoluciones] = useState([]);
@@ -12,7 +13,7 @@ const VbSoluciones = () => {
 
       var temp = resp.data.sort((a, b) => a.id - b.id);
       temp = temp.reverse();
-      temp = temp.slice(0, 5);
+      temp = temp.slice(0, 3);
       setSoluciones(temp);
     } catch (error) {
       console.log(error);
@@ -41,11 +42,18 @@ const VbSoluciones = () => {
       <div className="container">
         <div className="row j-center">
           {soluciones.map((item) => (
-            <div className="col-lg-2" key={item.id}>
+            <div className="col-lg-4" key={item.id}>
               <div className="card allCard">
-                <img src="" className="card-img-top" alt="" />
+                <div className="card_header">
+                  <p className="m-0">{item.fecha}</p>{" "}
+                  <p className="m-0">Soluciones integrales</p>
+                </div>
+                <img
+                  src={`${thumb + item.codigo_video}/maxresdefault.jpg`}
+                  className="card-img-top"
+                  alt={item.titulo}
+                />
                 <div className="card-body">
-                  <p className="VbCard_fecha">{item.fecha}</p>
                   <a
                     className="externalLink VbExternal"
                     href={`${youtube + item.codigo_video}`}
@@ -60,9 +68,6 @@ const VbSoluciones = () => {
                       {item.titulo}
                     </h5>
                   </a>
-                </div>
-                <div className="card-footer">
-                  <p>Soluciones</p>
                 </div>
               </div>
             </div>

@@ -28,7 +28,7 @@ const VbContent = () => {
 
   useEffect(() => {
     setTimeout(categoriasLoad, 500);
-    categoriasLoad();// eslint-disable-next-line
+    categoriasLoad(); // eslint-disable-next-line
   }, []);
 
   const categoriasShow = () => {
@@ -52,7 +52,7 @@ const VbContent = () => {
   return (
     <>
       <div className="container-fluid">
-        <div className="row">
+        <div className="row VbNavigationwrap">
           <ul className="VbNavigationUl navbar">
             <li
               className="VbNavigationLi navbarLink rrss navItem VbnavbarLink"

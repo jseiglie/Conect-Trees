@@ -3,8 +3,8 @@ import axios from "axios";
 
 const VbBigData = () => {
   const url = process.env.REACT_APP_videoblog;
-  const thumb = "https://img.youtube.com/vi/";
-  const youtube = "https://www.youtube.com/watch?v=";
+  const thumb = process.env.REACT_APP_thumb;
+  const youtube = process.env.REACT_APP_youtube;
 
   const [bigData, setBigData] = useState([]);
   const load = async () => {
@@ -12,7 +12,7 @@ const VbBigData = () => {
       const resp = await axios.get(`${url}noticias/bigdata`);
       var temp = resp.data.sort((a, b) => a.id - b.id);
       temp = temp.reverse();
-      temp = temp.slice(0, 5);
+      temp = temp.slice(0, 3);
       setBigData(temp);
     } catch (error) {
       console.log(error);
@@ -53,20 +53,20 @@ const VbBigData = () => {
                   className="card-img-top"
                   alt={item.titulo}
                 />
-                <div className="card-body">
+                <div className="card-body text_clamp">
                   <a
                     className="externalLink VbExternal"
                     href={`${youtube + item.codigo_video}`}
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <h4
+                    <h5
                       onClick={handleClick}
                       id={item.id}
                       className="text_clamp VbNoticiaTitle"
                     >
                       {item.titulo}
-                    </h4>
+                    </h5>
                   </a>
                 </div>
               </div>

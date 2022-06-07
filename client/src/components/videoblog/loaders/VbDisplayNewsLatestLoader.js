@@ -19,7 +19,7 @@ const VbDisplayNewsLatestLoader = (props) => {
       const resp = await axios.get(`${url}noticias/${props.get}`);
       var temp = await resp.data.sort(resp.data.id);
       temp = temp.reverse();
-      temp = temp.slice(0, 4);
+      temp = temp.slice(0, 3);
       setLatest(temp);
     } catch (error) {
       // console.log(error);
@@ -50,7 +50,7 @@ const VbDisplayNewsLatestLoader = (props) => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <h5 className="Vblatesttitle">{item.titulo}</h5>
+                <h5 className="Vblatesttitle text-clamp">{item.titulo}</h5>
               </a>
             </div>
           </div>

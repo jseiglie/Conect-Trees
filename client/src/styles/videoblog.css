@@ -71,7 +71,6 @@
   box-shadow: 0px 0px 8px 0px wheat;
 }
 
-
 .VbnavItem {
   list-style-type: none;
   justify-content: space-evenly;
@@ -208,19 +207,19 @@ li > a {
 
 .text_clamp {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 
 .allCard {
-  height: 17rem;
-  width: auto;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0px 5px 5px 0px slategray;
 }
 
 .j-center {
   justify-content: center;
+  margin-top: 2rem;
 }
 
 .Vb__content {
@@ -229,21 +228,11 @@ li > a {
 
 .Vb__active__content {
   display: flow-root;
-}
-
-.NewsDisplay_img_holder {
-}
-.NewsDisplay_img {
-}
-
-.NewsDisplay_news {
+  background-color: #388f88;
 }
 
 .NewsDisplay_fecha {
   font-size: 1rem;
-}
-
-.NewsDisplay_title {
 }
 
 .NewsDisplay_subtitle {
@@ -292,9 +281,6 @@ li > a {
 .NewsDisplay_Tags {
   display: flex;
   flex-wrap: wrap;
-}
-
-.NewsDisplay_Destacados {
 }
 
 .tags {
@@ -357,22 +343,20 @@ li > a {
   justify-content: center;
 }
 
-.listCategoria{
+.listCategoria {
   align-self: flex-end;
-  
 }
 
-.VbDestacadaWrap{
+.VbDestacadaWrap {
   background-color: aliceblue;
   border-top: 3px solid#388f88;
-  
 }
 
-.VbDestacadaIcon{
+.VbDestacadaIcon {
   margin-left: 0.5rem;
 }
 
-.VbDestacar:hover{
+.VbDestacar:hover {
   cursor: pointer;
 }
 
@@ -380,43 +364,44 @@ li > a {
   padding-bottom: 1.5rem;
 } */
 
-.VbOutterLine{
+.VbOutterLine {
   padding-bottom: 0.5rem;
   margin-bottom: 1.5rem;
   color: teal;
 }
 
-.VbBtn{
+.VbBtn {
   margin-bottom: 1rem;
   margin-top: 0.5rem;
 }
 
-.VbFechaDestacadaTop{
+.VbFechaDestacadaTop {
   font-size: small;
 }
-.destacadaExtLink{
+.destacadaExtLink {
   text-decoration: none;
-  font-weight: bold;
+
   color: #388f88;
 }
-.destacadaExtLink:hover{
-  color: wheat; 
+.destacadaExtLink:hover {
+  color: wheat;
 }
 
-.VbDestacadaMasNuevoText{
+.VbDestacadaMasNuevoText {
   margin: 0;
+  font-weight: 400;
 }
 
-.VbCategoriaTop{
+.VbCategoriaTop {
   background-color: aliceblue;
 }
 
-.VbNoticiaTitle:hover{
-cursor: pointer;
-color: wheat; 
+.VbNoticiaTitle:hover {
+  cursor: pointer;
+  color: wheat;
 }
 
-.VbFormSearch{
+.VbFormSearch {
   display: flex;
   padding: 2px;
   border: 1px solid currentColor;
@@ -424,7 +409,7 @@ color: wheat;
   margin: 0 0 30px;
 }
 
-.VbInputSearch{
+.VbInputSearch {
   border: none;
   background: transparent;
   margin: 0;
@@ -435,23 +420,23 @@ color: wheat;
   border-radius: inherit;
 }
 
-.VbSearchIcon{
+.VbSearchIcon {
   align-self: center;
   padding: 0.3rem;
 }
 
-.VbSearchResultBar{
+.VbSearchResultBar {
   width: 70%;
- margin-left: auto; 
- margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.VbCloseSeatch{
+.VbCloseSeatch {
   float: right;
   margin-top: -1rem;
 }
 
-.XCloseIconSearch:hover{
+.XCloseIconSearch:hover {
   transform: scale(1, -1);
   -webkit-transition: 1s ease-in-out;
   -moz-transition: 0.5s ease-in-out;
@@ -459,11 +444,11 @@ color: wheat;
   transition: 0.5s ease-in-out;
 }
 
-.VbSearchLi{
+.VbSearchLi {
   font-weight: 500;
 }
 
-.VbSearchWrapper{
+.VbSearchWrapper {
   border: 1px solid #388f88;
   padding: 1rem;
   border-radius: 1rem;
@@ -471,11 +456,18 @@ color: wheat;
   margin-bottom: 2rem;
 }
 
-.card_header{
+.card_header {
   display: flex;
   justify-content: space-between;
+  padding: 0 1rem;
 }
 
-.VbExternal{
+.VbExternal {
   color: #388f88;
+}
+
+.VbNavigationwrap {
+  background-color: aliceblue;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
