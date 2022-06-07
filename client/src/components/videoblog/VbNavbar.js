@@ -5,6 +5,7 @@ import "../../styles/Navbar.component.css";
 
 export const VbNavbar = () => {
   const url = process.env.REACT_APP_videoblog;
+  const youtube = process.env.REACT_APP_youtube;
   const [q, setQ] = useState("");
   const [data, setData] = useState([]);
   const [visible, setVisible] = useState(false);
@@ -54,6 +55,11 @@ export const VbNavbar = () => {
     }
   };
 
+useEffect(()=>{
+  if (q.length==0) setVisible(false)
+},[q])
+
+
   const handleClickSearchItem = (e) => {
     updateView(e.target.id);
   };
@@ -62,14 +68,19 @@ export const VbNavbar = () => {
     return searchResult.length > 0
       ? searchResult.map((item) => (
           <ul className="dhNavBar">
-            <Link to={`/videoblog/news/${item.id}`}>
+            <a
+              className="externalLink VbExternal"
+              href={`${youtube + item.codigo_video}`}
+              target="_blank"
+              rel="noreferrer"
+            >
               <li
                 onClick={(e) => handleClickSearchItem}
                 className="navItem Vbrrss VbSearchLi"
               >
                 {item.titulo}
               </li>
-            </Link>
+            </a>
           </ul>
         ))
       : "No data";
