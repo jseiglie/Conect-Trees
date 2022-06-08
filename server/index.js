@@ -7,6 +7,11 @@ const cors = require('cors');
 app.use(express.json());
 app.use(cors());
 
+// app.use(cors({
+//     credentials: true,
+//     origin: ["http://localhost:3000"]
+// }));
+
 //Routes
 const adminDigitalHub = require('./routes/Digitalhub.routes')
 app.use('/digitalhub', adminDigitalHub)

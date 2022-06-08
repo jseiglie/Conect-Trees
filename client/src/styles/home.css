@@ -315,3 +315,11 @@ a {
   padding: 1rem;
   padding: 1rem 0rem;
 }
+
+.cookieContainer{
+  display: block;
+}
+
+.hide{
+  display: none !important;
+}
