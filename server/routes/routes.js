@@ -33,11 +33,9 @@ router.post("/login", async (req, res) => {
       
       const accessToken = sign(
         { user: Usuarios.user, id: Usuarios.id },
-        "n9LKWwL2u0AMphq2nuoB" //cambiar luego de Lugar
+        process.env.NODE_ENV_SECRET //cambiar luego de Lugar
       );
       res.json([accessToken, userExists.permisos]);
-      
-      
     }
   });
 });
