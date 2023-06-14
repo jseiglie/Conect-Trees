@@ -28,8 +28,7 @@ const storage = multer.diskStorage({
 const imgUpload = multer({ storage: storage });
 
 router.post("/admin/images", imgUpload.array("my-image-file"), (req, res) => {
-  console.log("POST request received to /image-upload.");
-  console.log("Axios POST body: ", req.body);
+
   res
     .status(201)
     .json({ url: "../client/public/img/noticias_img/" + imageName });
@@ -349,8 +348,8 @@ router.post("/contacto", async (req, res) => {
     secure: false,
     //host: SMTP_HOST,
     auth: {
-      user: "info@conectrees.es", // NECESITA USUARIO
-      pass: "C0nn3c%%", // NECESITA PASS
+      user: "",// NECESITA USUARIO
+      pass: "", // NECESITA PASS
     },
     tls:{
       rejectUnauthorized:false  // if on local
