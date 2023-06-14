@@ -5,7 +5,7 @@ const validateToken = (req, res, next) =>{
 
     if (!accessToken){ return res.json({error: "El usuario no ha iniciado sesión"})};
     try {
-        const validToken= verify(accessToken, "n9LKWwL2u0AMphq2nuoB")
+        const validToken= verify(accessToken, "INSERT-YOUR-SECRET")
         const user = req.user
         if (validToken){
             return next();
